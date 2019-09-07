@@ -26,4 +26,13 @@ public class MainActivity extends AppCompatActivity {
         if (miIntent!=null) startActivity(miIntent);
 
     }
+    public void onClick2 (View view){
+        Intent miIntent=null;
+        switch (view.getId()){
+            case R.id.button2:
+                miIntent= new Intent(MainActivity.this, BuscarUsuario.class);
+                break;
+        }
+        if (miIntent!=null) startActivity(miIntent);
+}
 }

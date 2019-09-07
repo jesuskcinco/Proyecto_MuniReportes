@@ -13,4 +13,11 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="Registrarse Botons" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick2"
+        android:text="Buscar Botons" />
 </LinearLayout>
