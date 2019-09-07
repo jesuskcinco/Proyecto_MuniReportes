@@ -14,7 +14,7 @@ import com.example.proyectoandroid.Utilidades.Utilitario;
 public class RegistrarUsuario extends AppCompatActivity {
 
     EditText ls_dni,ls_nombre,ls_apellido,ls_clave,ls_usuario,ls_correo;
-    String ls_flgconductor,ls_flgusuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +28,7 @@ public class RegistrarUsuario extends AppCompatActivity {
 
     }
     public void onClick(View view) {
+
         registrarUsuario();
     }
     private void registrarUsuario() {
@@ -36,6 +37,16 @@ public class RegistrarUsuario extends AppCompatActivity {
         SQLiteDatabase db = conn.getWritableDatabase();
         ContentValues values= new ContentValues();
 
+        String var_usuario=ls_usuario.getText().toString();
+        String var_clave=ls_clave.getText().toString();
+        String var_correo=ls_correo.getText().toString();
+        String var_nombre=ls_nombre.getText().toString();
+        String var_apellido=ls_apellido.getText().toString();
+        String var_dni=ls_dni.getText().toString();
+
+        if(!var_usuario.isEmpty()&& !var_clave.isEmpty() && !var_correo.isEmpty() && !var_nombre.isEmpty() && !var_apellido.isEmpty()
+                && !var_dni.isEmpty()){
+
         values.put(Utilitario.CAMPO_USUARIO,ls_usuario.getText().toString());
         values.put(Utilitario.CAMPO_CLAVE,ls_clave.getText().toString());
         values.put(Utilitario.CAMPO_CORREO,ls_correo.getText().toString());
@@ -43,9 +54,21 @@ public class RegistrarUsuario extends AppCompatActivity {
         values.put(Utilitario.CAMPO_APELLIDOS,ls_apellido.getText().toString());
         values.put(Utilitario.CAMPO_DNI,ls_dni.getText().toString());
 
-        Long idResultante= db.insert(Utilitario.TABLE_NAME,Utilitario.CAMPO_DNI,values);
+            Long idResultante= db.insert(Utilitario.TABLE_NAME,Utilitario.CAMPO_DNI,values);
 
-        Toast.makeText(getApplicationContext(),"Id de Registro"+idResultante,Toast.LENGTH_LONG).show();
-        db.close();
+            Toast.makeText(getApplicationContext(),"Registro exitoso"+idResultante,Toast.LENGTH_LONG).show();
+            db.close();
+
+            ls_usuario.setText("");
+            ls_clave.setText("");
+            ls_correo.setText("");
+            ls_nombre.setText("");
+            ls_apellido.setText("");
+            ls_dni.setText("");
+
+        }else{
+            Toast.makeText(this,"Debe completar los campos",Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

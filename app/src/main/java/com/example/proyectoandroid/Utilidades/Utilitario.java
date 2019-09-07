@@ -13,5 +13,5 @@ public class Utilitario {
 
     public static final String CREAR_TABLA_USUARIO="CREATE TABLE "+TABLE_NAME+
             " ("+CAMPO_USUARIO+" TEXT,"+CAMPO_CLAVE+" TEXT,"+CAMPO_CORREO+" TEXT," +
-            ""+CAMPO_NOMBRES+" TEXT,"+CAMPO_APELLIDOS+" TEXT,"+CAMPO_DNI+" int)";
+            ""+CAMPO_NOMBRES+" TEXT,"+CAMPO_APELLIDOS+" TEXT,"+CAMPO_DNI+" int primary key)";
 }
