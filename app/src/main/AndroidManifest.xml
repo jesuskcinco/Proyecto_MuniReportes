@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BuscarUsuario"></activity>
+        <activity android:name=".EliminarUsuario"></activity>
+        <activity android:name=".BuscarUsuario" />
         <activity android:name=".RegistrarUsuario" />
         <activity android:name=".MainActivity">
             <intent-filter>
