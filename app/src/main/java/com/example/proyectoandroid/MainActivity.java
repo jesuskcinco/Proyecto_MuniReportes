@@ -34,5 +34,24 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         if (miIntent!=null) startActivity(miIntent);
-}
+    }
+    public void onClick3 (View view){
+        Intent miIntent=null;
+        switch (view.getId()){
+            case R.id.button3:
+                miIntent= new Intent(MainActivity.this, EliminarUsuario.class);
+                break;
+        }
+        if (miIntent!=null) startActivity(miIntent);
+    }
+    public void onClick4 (View view){
+        Intent miIntent=null;
+        switch (view.getId()){
+            case R.id.button4:
+                miIntent= new Intent(MainActivity.this, ActualizarUsuario.class);
+                break;
+        }
+        if (miIntent!=null) startActivity(miIntent);
+    }
+
 }
