@@ -35,4 +35,20 @@
         android:onClick="onClick4"
         android:text="Actualizar Usuario" />
 
+    <EditText
+        android:id="@+id/dnipasado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/clavepasada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
 </LinearLayout>

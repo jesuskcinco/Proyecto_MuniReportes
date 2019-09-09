@@ -5,14 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Bundle datos;
+    TextView getdni,getclave;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        datos = getIntent().getExtras();
+        String dniobt= datos.getString("pasar_dni");
+        String claveobt= datos.getString("pasar_clave");
+        getdni= (TextView) findViewById(R.id.dnipasado);
+        getclave= (TextView) findViewById(R.id.clavepasada);
+        getdni.setText(dniobt);
+        getclave.setText(claveobt);
         ConexionSQLiteHelper conn= new ConexionSQLiteHelper (this,"bd_aplicativo",null, 1);
     }
 
