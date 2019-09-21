@@ -3,6 +3,7 @@ package com.example.proyectoandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ public class RegistrarMototaxi extends AppCompatActivity {
     Spinner combousuario;
     ArrayList<String> listausuarios;
     ArrayList<Usuario> usuarioslist;
-    ConexionSQLiteHelper con;
+    ConexionSQLiteHelper con,con2;
     String validar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +44,14 @@ public class RegistrarMototaxi extends AppCompatActivity {
        combousuario.setAdapter(adaptador);
 
     }
-
+    //para llenar el spinner
     private void consultarusuarios() {
 
-        SQLiteDatabase db= con.getWritableDatabase();
+        SQLiteDatabase db2= con.getWritableDatabase();
         Usuario clase_usuario= null;
         usuarioslist= new ArrayList<Usuario>();
         //CONSULTA
-        Cursor cursor=db.rawQuery("select dni_usuario,nombre_usuario from " +Utilitario.TABLE_NAME,null);
+        Cursor cursor=db2.rawQuery("select dni_usuario,nombre_usuario from " +Utilitario.TABLE_NAME,null);
 
         while (cursor.moveToNext()){
             clase_usuario=new Usuario();
@@ -64,7 +65,7 @@ public class RegistrarMototaxi extends AppCompatActivity {
 
         }
         llenarspinner();
-        db.close();
+        db2.close();
     }
     private void llenarspinner(){
         listausuarios =new ArrayList<String>();
@@ -74,6 +75,8 @@ public class RegistrarMototaxi extends AppCompatActivity {
 
         }
     }
+
+
     public void onClick(View view) {
 
         registrarvehiculo();
@@ -81,25 +84,35 @@ public class RegistrarMototaxi extends AppCompatActivity {
 
     private void registrarvehiculo() {
 
-        String var_placa = placa.getText().toString();
+        String var_placa =placa.getText().toString();
         String var_vehiculo = vehiculo.getText().toString();
         String var_modelo = modelo.getText().toString();
         String var_color = color.getText().toString();
 
-        con= new ConexionSQLiteHelper(this,"bd_aplicativo",null,1);
+        con2= new ConexionSQLiteHelper(this,"bd_aplicativo",null,1);
 
-        SQLiteDatabase db= con.getWritableDatabase();
+        SQLiteDatabase db= con2.getWritableDatabase();
 
 
         ContentValues values = new ContentValues();
+
         if (!var_placa.isEmpty() && !var_vehiculo.isEmpty() && !var_modelo.isEmpty() && !var_color.isEmpty()) {
 
-            Cursor cursor2=db.rawQuery("select placa_vehiculo from " +Utilitario.TABLE_MOTOTAXI+" where placa_vehiculo='"+var_placa+"'",null);
+            Cursor cursor2=db.rawQuery("select placa_vehiculo from VEHICULO where placa_vehiculo='"+var_placa+"'",null);
             while (cursor2.moveToNext()){
                  validar= cursor2.getString(0);
+
             }
 
-            if(validar.isEmpty()){
+            if(cursor2.moveToFirst()){
+                Toast.makeText(getApplicationContext(), "El vehiculo con placa "+var_placa+" ya ha sido registrado", Toast.LENGTH_SHORT).show();
+                ///db.close();
+                //NO SE SOLUCIONO EL TEMA DE REVALIDAR CUANDO EL MENSAJE APARECE
+                validar="";
+                placa.setText("");
+                db.close();
+
+            }else {
 
                 values.put(Utilitario.CAMPO_PLACA, placa.getText().toString());
                 values.put(Utilitario.CAMPO_VEHICULO, vehiculo.getText().toString());
@@ -114,6 +127,7 @@ public class RegistrarMototaxi extends AppCompatActivity {
                     Log.i("id combo", idcombo + "");
                     Log.i("id combo - 1", (idcombo - 1) + "");
                     int idusuario = usuarioslist.get(idcombo - 1).getDni();
+                    String sidusuario= String.valueOf(idusuario);
                     Log.i("id usuario", idusuario + "");
 
                     values.put(Utilitario.CAMPO_DUENIO, idusuario);
@@ -121,6 +135,12 @@ public class RegistrarMototaxi extends AppCompatActivity {
                     Long idResultante = db.insert(Utilitario.TABLE_MOTOTAXI, Utilitario.CAMPO_PLACA, values);
 
                     Toast.makeText(getApplicationContext(), "Registro exitoso " + idResultante, Toast.LENGTH_LONG).show();
+
+                    Intent ven2= new Intent(RegistrarMototaxi.this,Consultar_Mototaxis.class);
+                    ven2.putExtra("pasar_placa",var_placa);
+                    ven2.putExtra("pasar_usuario",sidusuario);
+                    startActivity(ven2);
+
                     //db.close();
                     //Se setean los campos
                     placa.setText("");
@@ -129,15 +149,11 @@ public class RegistrarMototaxi extends AppCompatActivity {
                     color.setText("");
                     combousuario.setSelection(0);
                     validar="";
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Debe seleccionar un usuario", Toast.LENGTH_SHORT).show();
                 }
-            }else {
-                Toast.makeText(getApplicationContext(), "El vehiculo con placa "+validar+" ya ha sido registrado", Toast.LENGTH_SHORT).show();
-                ///db.close();
-                //NO SE SOLUCIONO EL TEMA DE REVALIDAR CUANDO EL MENSAJE APARECE
-                validar="";
-                placa.setText("");
+
             }
 
         } else {
