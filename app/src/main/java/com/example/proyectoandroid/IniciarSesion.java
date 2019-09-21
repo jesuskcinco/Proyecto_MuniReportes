@@ -68,4 +68,13 @@ public class IniciarSesion extends AppCompatActivity {
 
         }
     }
+    public void onClick8 (View view){
+        String dni2= "NUll";
+        String clave2="NUll";
+        Intent ven2= new Intent(IniciarSesion.this,MainActivity.class);
+        ven2.putExtra("pasar_dni",dni2);
+        ven2.putExtra("pasar_clave",clave2);
+        startActivity(ven2);
+
+    }
 }

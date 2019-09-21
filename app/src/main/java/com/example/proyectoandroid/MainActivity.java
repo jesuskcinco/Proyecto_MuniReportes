@@ -62,5 +62,13 @@ public class MainActivity extends AppCompatActivity {
         }
         if (miIntent!=null) startActivity(miIntent);
     }
-
+    public void onClick9 (View view){
+        Intent miIntent=null;
+        switch (view.getId()){
+            case R.id.button6:
+                miIntent= new Intent(MainActivity.this, RegistrarMototaxi.class);
+                break;
+        }
+        if (miIntent!=null) startActivity(miIntent);
+    }
 }

@@ -18,6 +18,9 @@ public class Usuario {
         this.dni = dni;
     }
 
+    public Usuario() {
+
+    }
     public String getNom_usuario() {
         return nom_usuario;
     }
