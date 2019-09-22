@@ -3,6 +3,7 @@ package com.example.proyectoandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,7 @@ import com.example.proyectoandroid.Utilidades.Utilitario;
 public class RegistrarUsuario extends AppCompatActivity {
 
     EditText ls_dni,ls_nombre,ls_apellido,ls_clave,ls_usuario,ls_correo;
-
+    String validar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,17 +48,28 @@ public class RegistrarUsuario extends AppCompatActivity {
         if(!var_usuario.isEmpty()&& !var_clave.isEmpty() && !var_correo.isEmpty() && !var_nombre.isEmpty() && !var_apellido.isEmpty()
                 && !var_dni.isEmpty()){
 
-        values.put(Utilitario.CAMPO_USUARIO,ls_usuario.getText().toString());
-        values.put(Utilitario.CAMPO_CLAVE,ls_clave.getText().toString());
-        values.put(Utilitario.CAMPO_CORREO,ls_correo.getText().toString());
-        values.put(Utilitario.CAMPO_NOMBRES,ls_nombre.getText().toString());
-        values.put(Utilitario.CAMPO_APELLIDOS,ls_apellido.getText().toString());
-        values.put(Utilitario.CAMPO_DNI,ls_dni.getText().toString());
+            Cursor cursor2=db.rawQuery("select dni_usuario from USUARIO where dni_usuario='"+var_dni+"'",null);
+
+            if(cursor2.moveToFirst()){
+                Toast.makeText(getApplicationContext(), "El usuario con DNI "+var_dni+" ya ha sido registrado", Toast.LENGTH_SHORT).show();
+                ///db.close();
+                //NO SE SOLUCIONO EL TEMA DE REVALIDAR CUANDO EL MENSAJE APARECE
+                validar="";
+                ls_dni.setText("");
+                db.close();
+
+            }else {
+            values.put(Utilitario.CAMPO_USUARIO,ls_usuario.getText().toString());
+            values.put(Utilitario.CAMPO_CLAVE,ls_clave.getText().toString());
+            values.put(Utilitario.CAMPO_CORREO,ls_correo.getText().toString());
+            values.put(Utilitario.CAMPO_NOMBRES,ls_nombre.getText().toString());
+            values.put(Utilitario.CAMPO_APELLIDOS,ls_apellido.getText().toString());
+            values.put(Utilitario.CAMPO_DNI,ls_dni.getText().toString());
 
             Long idResultante= db.insert(Utilitario.TABLE_NAME,Utilitario.CAMPO_DNI,values);
 
             Toast.makeText(getApplicationContext(),"Registro exitoso"+idResultante,Toast.LENGTH_LONG).show();
-            db.close();
+
 
             ls_usuario.setText("");
             ls_clave.setText("");
@@ -65,10 +77,12 @@ public class RegistrarUsuario extends AppCompatActivity {
             ls_nombre.setText("");
             ls_apellido.setText("");
             ls_dni.setText("");
+            }
 
         }else{
-            Toast.makeText(this,"Debe completar los campos",Toast.LENGTH_SHORT).show();
-        }
+                Toast.makeText(this,"Debe completar los campos",Toast.LENGTH_SHORT).show();
 
+        }
+        db.close();
     }
 }

@@ -20,13 +20,13 @@ import com.example.proyectoandroid.Utilidades.Utilitario;
 import java.util.ArrayList;
 
 public class RegistrarMototaxi extends AppCompatActivity {
-
+    Bundle datos2;
     EditText placa,vehiculo,modelo,color;
     Spinner combousuario;
     ArrayList<String> listausuarios;
     ArrayList<Usuario> usuarioslist;
     ConexionSQLiteHelper con,con2;
-    String validar;
+    String validar,usupas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +37,11 @@ public class RegistrarMototaxi extends AppCompatActivity {
         modelo= (EditText) findViewById(R.id.edt_modelo);
         color= (EditText) findViewById(R.id.edt_color);
         combousuario= (Spinner) findViewById(R.id.spn_usuario);
-
+        datos2 = getIntent().getExtras();
+        usupas=datos2.getString("pasar_usuario");
+        if (usupas.equals("")){
+            usupas="70546327";
+        }
         consultarusuarios();
         ArrayAdapter<CharSequence> adaptador= new ArrayAdapter(this,android.R.layout.simple_spinner_item,listausuarios);
 
@@ -99,10 +103,6 @@ public class RegistrarMototaxi extends AppCompatActivity {
         if (!var_placa.isEmpty() && !var_vehiculo.isEmpty() && !var_modelo.isEmpty() && !var_color.isEmpty()) {
 
             Cursor cursor2=db.rawQuery("select placa_vehiculo from VEHICULO where placa_vehiculo='"+var_placa+"'",null);
-            while (cursor2.moveToNext()){
-                 validar= cursor2.getString(0);
-
-            }
 
             if(cursor2.moveToFirst()){
                 Toast.makeText(getApplicationContext(), "El vehiculo con placa "+var_placa+" ya ha sido registrado", Toast.LENGTH_SHORT).show();
@@ -130,15 +130,16 @@ public class RegistrarMototaxi extends AppCompatActivity {
                     String sidusuario= String.valueOf(idusuario);
                     Log.i("id usuario", idusuario + "");
 
-                    values.put(Utilitario.CAMPO_DUENIO, idusuario);
+                    //values.put(Utilitario.CAMPO_DUENIO, idusuario);
+                    values.put(Utilitario.CAMPO_DUENIO, usupas);
 
                     Long idResultante = db.insert(Utilitario.TABLE_MOTOTAXI, Utilitario.CAMPO_PLACA, values);
 
                     Toast.makeText(getApplicationContext(), "Registro exitoso " + idResultante, Toast.LENGTH_LONG).show();
 
                     Intent ven2= new Intent(RegistrarMototaxi.this,Consultar_Mototaxis.class);
-                    ven2.putExtra("pasar_placa",var_placa);
-                    ven2.putExtra("pasar_usuario",sidusuario);
+                    //ven2.putExtra("pasar_placa",var_placa);
+                    ven2.putExtra("pasar_usuario",usupas);
                     startActivity(ven2);
 
                     //db.close();

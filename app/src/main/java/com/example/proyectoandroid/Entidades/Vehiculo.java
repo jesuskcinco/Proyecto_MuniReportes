@@ -16,6 +16,9 @@ public class Vehiculo {
         this.dni_duenio = dni_duenio;
     }
 
+    public Vehiculo(){
+
+    }
     public String getPlaca() {
         return placa;
     }
