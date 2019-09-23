@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrarTipoIncidente"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edtcodigotipinc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Código" />
+
+    <EditText
+        android:id="@+id/edtdestipinc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Descripción" />
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="75dp">
+
+        <RadioButton
+            android:id="@+id/rbtactivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activo"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/rbtinactivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inactivo" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Registrar" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Cancelar" />
+
+    <EditText
+        android:id="@+id/edtbustipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Buscar Tipo Incidente" />
+
+    <ListView
+        android:id="@+id/listviewtincidentes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

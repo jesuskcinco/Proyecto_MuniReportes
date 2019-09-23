@@ -3,6 +3,7 @@ package com.example.proyectoandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ public class RegistrarUsuario extends AppCompatActivity {
 
     EditText ls_dni,ls_nombre,ls_apellido,ls_clave,ls_usuario,ls_correo;
     String validar;
+    SQLiteDatabase db;
     String pater="^(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z]).{8,}$";
     //private static final Pattern PASSWORD_PATTERN=Pattern.compile(  "^"+"(?=.*[0-9])"+
     //                                                                //"(?=.*[a-z])"+
@@ -37,13 +39,23 @@ public class RegistrarUsuario extends AppCompatActivity {
 
     }
     public void onClick(View view) {
+        Intent miIntent=null;
+        switch (view.getId()){
+            case R.id.btn_grabar:
+                registrarUsuario();
+                break;
+            case R.id.btn_salir:
+                miIntent= new Intent(RegistrarUsuario.this, IniciarSesion.class);
 
-        registrarUsuario();
+                break;
+        }
+        if (miIntent!=null) startActivity(miIntent);
+
     }
     private void registrarUsuario() {
         ConexionSQLiteHelper conn= new ConexionSQLiteHelper (this,"bd_aplicativo",null, 1);
 
-        SQLiteDatabase db = conn.getWritableDatabase();
+         db = conn.getWritableDatabase();
         ContentValues values= new ContentValues();
 
         String var_usuario=ls_usuario.getText().toString();
@@ -82,9 +94,12 @@ public class RegistrarUsuario extends AppCompatActivity {
                             values.put(Utilitario.CAMPO_DNI,ls_dni.getText().toString());
 
                             Long idResultante= db.insert(Utilitario.TABLE_NAME,Utilitario.CAMPO_DNI,values);
-
+                            //db.close();
                             Toast.makeText(getApplicationContext(),"Registro exitoso"+idResultante,Toast.LENGTH_LONG).show();
+                            Intent ven2= new Intent(RegistrarUsuario.this,IniciarSesion.class);
+                            //ven2.putExtra("pasar_placa",var_placa);
 
+                            startActivity(ven2);
 
                             ls_usuario.setText("");
                             ls_clave.setText("");

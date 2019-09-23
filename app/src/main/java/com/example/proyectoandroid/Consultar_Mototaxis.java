@@ -49,6 +49,7 @@ public class Consultar_Mototaxis extends AppCompatActivity {
 
         final ArrayAdapter adaptador= new ArrayAdapter(this,android.R.layout.simple_list_item_1,listainformacion);
         listviewvehiculos.setAdapter(adaptador);
+
         listviewvehiculos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {

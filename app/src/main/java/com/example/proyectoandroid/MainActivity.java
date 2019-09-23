@@ -51,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 nuevamoto.putExtra("pasar_usuario",dniobt);
                 startActivity(nuevamoto);
                 break;
+            case R.id.button11:
+                miIntent= new Intent(MainActivity.this, RegistrarTipoIncidente.class);
+                //Intent tipoinc= new Intent(MainActivity.this,RegistrarTipoIncidente.class);
+                miIntent.putExtra("pasar_usuario",dniobt);
+                //startActivity(tipoinc);
+                break;
         }
         if (miIntent!=null) startActivity(miIntent);
     }

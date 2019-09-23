@@ -106,8 +106,7 @@ public class RegistrarMototaxi extends AppCompatActivity {
 
             if(cursor2.moveToFirst()){
                 Toast.makeText(getApplicationContext(), "El vehiculo con placa "+var_placa+" ya ha sido registrado", Toast.LENGTH_SHORT).show();
-                ///db.close();
-                //NO SE SOLUCIONO EL TEMA DE REVALIDAR CUANDO EL MENSAJE APARECE
+
                 validar="";
                 placa.setText("");
                 db.close();

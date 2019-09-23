@@ -29,4 +29,15 @@ public class Utilitario {
             " ("+CAMPO_PLACA+" TEXT primary key,"+CAMPO_VEHICULO+" TEXT,"+CAMPO_MODELO+" TEXT," +
             ""+CAMPOCOLOR+" TEXT,"+CAMPO_DUENIO+" TEXT)";
 
+    ///Constantes para crear la tabla Tipo Incidente
+    public static final String TABLE_TIPO_INCIDENTE= "TIPOINCIDENTE";
+    public static final String CAMPO_CODIGO= "codigo_incidente";
+    public static final String CAMPO_DESCRIPCION= "tipo_incidente";
+    public static final String CAMPO_ESTADO= "estado_incidente";
+    public static final String CAMPO_DNI_REG= "dni_usuario";
+
+
+    public static final String CREAR_TABLA_TIPO_INCIDENTE="CREATE TABLE "+TABLE_TIPO_INCIDENTE+
+            " ("+CAMPO_CODIGO+" TEXT primary key,"+CAMPO_DESCRIPCION+" TEXT,"+CAMPO_ESTADO+" TEXT," +
+            ""+CAMPO_DNI_REG+" TEXT)";
 }

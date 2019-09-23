@@ -67,6 +67,7 @@ public class IniciarSesion extends AppCompatActivity {
             Toast.makeText(this,"Debe ingresar el DNI y Clave",Toast.LENGTH_SHORT).show();
 
         }
+        bd.close();
     }
     public void onClick8 (View view){
         String dni2= "";
