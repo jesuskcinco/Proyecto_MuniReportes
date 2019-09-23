@@ -9,12 +9,21 @@
 
     <EditText
         android:id="@+id/txt_dni"
-        android:layout_width="match_parent"
+        android:layout_width="171dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="DNI"
         android:inputType="number"
+        android:digits="1234567890"
+        android:singleLine="true"
+        android:maxLength="8"
         />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="171dp"
+        android:layout_height="wrap_content"
+        android:text="Validar DNI" />
 
     <EditText
         android:id="@+id/txt_nombres"
@@ -23,7 +32,8 @@
         android:ems="10"
         android:hint="Nombres"
         android:inputType="textPersonName"
-        />
+        android:maxLength="8"
+        android:numeric="integer" />
 
     <EditText
         android:id="@+id/txt_apellidos"
@@ -39,8 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Usuario"
-        android:inputType="textPersonName"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
         />
 
 
@@ -49,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Contraseña"
+        android:hint="Confirmar Contraseña"
         android:inputType="textPassword"
         />
 
@@ -67,4 +77,5 @@
         android:onClick="onClick"
         android:text="Guardar"
         />
+
 </LinearLayout>

@@ -41,7 +41,7 @@ public class BuscarUsuario extends AppCompatActivity {
 
         if(!var_dni.isEmpty()){
             Cursor fila = db.rawQuery
-                    ("select nombres_usuario,apellidos_usuario from USUARIO where dni_usuario =" + var_dni, null);
+                    ("select nombres_usuario,apellidos_usuario from USUARIO where dni_usuario ='" + var_dni+"'", null);
 
             if(fila.moveToFirst()){
                 ls_nombres2.setText(fila.getString(0));
