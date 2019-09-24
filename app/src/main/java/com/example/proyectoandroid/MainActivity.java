@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.button6:
                 miIntent= new Intent(MainActivity.this, RegistrarMototaxi.class);
-                Intent nuevamoto= new Intent(MainActivity.this,RegistrarMototaxi.class);
-                nuevamoto.putExtra("pasar_usuario",dniobt);
-                startActivity(nuevamoto);
+                //Intent nuevamoto= new Intent(MainActivity.this,RegistrarMototaxi.class);
+                miIntent.putExtra("pasar_usuario",dniobt);
+                //startActivity(nuevamoto);
                 break;
             case R.id.button11:
                 miIntent= new Intent(MainActivity.this, RegistrarTipoIncidente.class);

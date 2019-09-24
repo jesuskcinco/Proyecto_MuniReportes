@@ -56,6 +56,7 @@ public class Consultar_Mototaxis extends AppCompatActivity {
                 db=con.getWritableDatabase();
                 String query="delete from VEHICULO where placa_vehiculo='"+listarvehiculos.get(i).getPlaca()+"'";
                 db.execSQL(query);
+                db.close();
                 Intent recarga= new Intent(Consultar_Mototaxis.this,Consultar_Mototaxis.class);
                 recarga.putExtra("pasar_usuario",usupas);
                 startActivity(recarga);

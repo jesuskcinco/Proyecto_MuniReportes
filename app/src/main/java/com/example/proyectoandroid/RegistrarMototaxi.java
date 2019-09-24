@@ -27,6 +27,7 @@ public class RegistrarMototaxi extends AppCompatActivity {
     ArrayList<Usuario> usuarioslist;
     ConexionSQLiteHelper con,con2;
     String validar,usupas;
+    SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +43,10 @@ public class RegistrarMototaxi extends AppCompatActivity {
         if (usupas.equals("")){
             usupas="70546327";
         }
-        consultarusuarios();
-        ArrayAdapter<CharSequence> adaptador= new ArrayAdapter(this,android.R.layout.simple_spinner_item,listausuarios);
+        //consultarusuarios();
+        //ArrayAdapter<CharSequence> adaptador= new ArrayAdapter(this,android.R.layout.simple_spinner_item,listausuarios);
 
-       combousuario.setAdapter(adaptador);
+       //combousuario.setAdapter(adaptador);
 
     }
     //para llenar el spinner
@@ -82,8 +83,18 @@ public class RegistrarMototaxi extends AppCompatActivity {
 
 
     public void onClick(View view) {
+        Intent miIntent=null;
+        switch (view.getId()){
+            case R.id.btn_grabar_moto:
+                registrarvehiculo();
+                break;
+            case R.id.btn_salir_moto:
+                miIntent= new Intent(RegistrarMototaxi.this, MainActivity.class);
+                miIntent.putExtra("pasar_usuario",usupas);
+                break;
+        }
+        if (miIntent!=null) startActivity(miIntent);
 
-        registrarvehiculo();
     }
 
     private void registrarvehiculo() {
@@ -95,7 +106,7 @@ public class RegistrarMototaxi extends AppCompatActivity {
 
         con2= new ConexionSQLiteHelper(this,"bd_aplicativo",null,1);
 
-        SQLiteDatabase db= con2.getWritableDatabase();
+        db= con2.getWritableDatabase();
 
 
         ContentValues values = new ContentValues();
@@ -120,14 +131,14 @@ public class RegistrarMototaxi extends AppCompatActivity {
 
 
                 //aqui se obtienen los datos del combo
-                int idcombo = (int) combousuario.getSelectedItemId();
-                if (idcombo != 0) {
-                    Log.i("TAMAÑO", usuarioslist.size() + "");
-                    Log.i("id combo", idcombo + "");
-                    Log.i("id combo - 1", (idcombo - 1) + "");
-                    int idusuario = usuarioslist.get(idcombo - 1).getDni();
-                    String sidusuario= String.valueOf(idusuario);
-                    Log.i("id usuario", idusuario + "");
+                //int idcombo = (int) combousuario.getSelectedItemId();
+                //if (idcombo != 0) {
+                    //Log.i("TAMAÑO", usuarioslist.size() + "");
+                    //Log.i("id combo", idcombo + "");
+                    //Log.i("id combo - 1", (idcombo - 1) + "");
+                    //int idusuario = usuarioslist.get(idcombo - 1).getDni();
+                    //String sidusuario= String.valueOf(idusuario);
+                    //Log.i("id usuario", idusuario + "");
 
                     //values.put(Utilitario.CAMPO_DUENIO, idusuario);
                     values.put(Utilitario.CAMPO_DUENIO, usupas);
@@ -150,9 +161,9 @@ public class RegistrarMototaxi extends AppCompatActivity {
                     combousuario.setSelection(0);
                     validar="";
 
-                } else {
-                    Toast.makeText(getApplicationContext(), "Debe seleccionar un usuario", Toast.LENGTH_SHORT).show();
-                }
+                //} else {
+                 //   Toast.makeText(getApplicationContext(), "Debe seleccionar un usuario", Toast.LENGTH_SHORT).show();
+                //}
 
             }
 

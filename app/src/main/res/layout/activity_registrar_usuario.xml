@@ -28,7 +28,7 @@
         android:ems="10"
         android:hint="Nombres"
         android:inputType="textPersonName"
-        android:maxLength="8"
+
         />
 
     <EditText

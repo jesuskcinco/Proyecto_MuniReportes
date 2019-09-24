@@ -42,13 +42,21 @@
     <Spinner
         android:id="@+id/spn_usuario"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/btn_grabar_moto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onClick"
-        android:text="Button"
+        android:text="Registrar"
+        />
+    <Button
+        android:id="@+id/btn_salir_moto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Salir"
         />
 </LinearLayout>
