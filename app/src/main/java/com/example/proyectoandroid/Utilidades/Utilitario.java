@@ -40,4 +40,13 @@ public class Utilitario {
     public static final String CREAR_TABLA_TIPO_INCIDENTE="CREATE TABLE "+TABLE_TIPO_INCIDENTE+
             " ("+CAMPO_CODIGO+" TEXT primary key,"+CAMPO_DESCRIPCION+" TEXT,"+CAMPO_ESTADO+" TEXT," +
             ""+CAMPO_DNI_REG+" TEXT)";
+
+    ///Constantes para crear la tabla Nivel Incidente
+    public static final String TABLE_NIVEL_INCIDENTE= "NIVELINCIDENTE";
+    public static final String CAMPO_ID_NIV_INC= "idnivinc";
+    public static final String CAMPO_DESC_NIVEL_INC= "desc_niv_inc";
+
+
+    public static final String CREAR_TABLA_NIVEL_INCIDENTE="CREATE TABLE "+TABLE_NIVEL_INCIDENTE+
+            " ("+CAMPO_ID_NIV_INC+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_DESC_NIVEL_INC+" TEXT)";
 }

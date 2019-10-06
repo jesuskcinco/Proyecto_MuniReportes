@@ -57,6 +57,18 @@ public class MainActivity extends AppCompatActivity {
                 miIntent.putExtra("pasar_usuario",dniobt);
                 //startActivity(tipoinc);
                 break;
+            case R.id.button14:
+                miIntent= new Intent(MainActivity.this, RegistrarNivelncidente.class);
+                //Intent tipoinc= new Intent(MainActivity.this,RegistrarTipoIncidente.class);
+                miIntent.putExtra("pasar_usuario",dniobt);
+                //startActivity(tipoinc);
+                break;
+            case R.id.button15:
+                miIntent= new Intent(MainActivity.this, RegistrarIncidente.class);
+                //Intent tipoinc= new Intent(MainActivity.this,RegistrarTipoIncidente.class);
+                miIntent.putExtra("pasar_usuario",dniobt);
+                //startActivity(tipoinc);
+                break;
         }
         if (miIntent!=null) startActivity(miIntent);
     }

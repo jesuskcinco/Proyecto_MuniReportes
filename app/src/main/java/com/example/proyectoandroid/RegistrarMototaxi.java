@@ -22,8 +22,9 @@ import java.util.ArrayList;
 public class RegistrarMototaxi extends AppCompatActivity {
     Bundle datos2;
     EditText placa,vehiculo,modelo,color;
-    Spinner combousuario;
+    Spinner combousuario,combovehiculo;
     ArrayList<String> listausuarios;
+    ArrayList<String> listavehiculos;
     ArrayList<Usuario> usuarioslist;
     ConexionSQLiteHelper con,con2;
     String validar,usupas;
@@ -38,16 +39,18 @@ public class RegistrarMototaxi extends AppCompatActivity {
         modelo= (EditText) findViewById(R.id.edt_modelo);
         color= (EditText) findViewById(R.id.edt_color);
         combousuario= (Spinner) findViewById(R.id.spn_usuario);
+        combovehiculo= (Spinner) findViewById(R.id.spn_vehiculo);
         datos2 = getIntent().getExtras();
         usupas=datos2.getString("pasar_usuario");
         if (usupas.equals("")){
             usupas="70546327";
         }
         //consultarusuarios();
+        llenarspinner2();
         //ArrayAdapter<CharSequence> adaptador= new ArrayAdapter(this,android.R.layout.simple_spinner_item,listausuarios);
-
+        ArrayAdapter<CharSequence> adaptador2= new ArrayAdapter(this,android.R.layout.simple_spinner_item,listavehiculos);
        //combousuario.setAdapter(adaptador);
-
+        combovehiculo.setAdapter(adaptador2);
     }
     //para llenar el spinner
     private void consultarusuarios() {
@@ -72,6 +75,7 @@ public class RegistrarMototaxi extends AppCompatActivity {
         llenarspinner();
         db2.close();
     }
+    //llenado del spinner usuario
     private void llenarspinner(){
         listausuarios =new ArrayList<String>();
         listausuarios.add("Seleccione");
@@ -81,6 +85,12 @@ public class RegistrarMototaxi extends AppCompatActivity {
         }
     }
 
+    private void llenarspinner2(){
+        listavehiculos =new ArrayList<String>();
+        listavehiculos.add("Seleccione");
+        listavehiculos.add("BAJAJ");
+        listavehiculos.add("HONDA");
+    }
 
     public void onClick(View view) {
         Intent miIntent=null;
@@ -125,7 +135,14 @@ public class RegistrarMototaxi extends AppCompatActivity {
             }else {
 
                 values.put(Utilitario.CAMPO_PLACA, placa.getText().toString());
-                values.put(Utilitario.CAMPO_VEHICULO, vehiculo.getText().toString());
+                //se agrega codigo por el profesor
+                String idcombo2=(String) combovehiculo.getSelectedItem();
+                //if (idcombo2 != 0) {
+                    //String vehicu=listavehiculos;
+                //}
+
+                //values.put(Utilitario.CAMPO_VEHICULO, vehiculo.getText().toString());
+                values.put(Utilitario.CAMPO_VEHICULO, idcombo2);
                 values.put(Utilitario.CAMPO_MODELO, modelo.getText().toString());
                 values.put(Utilitario.CAMPOCOLOR, color.getText().toString());
 

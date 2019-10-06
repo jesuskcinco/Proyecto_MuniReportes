@@ -21,7 +21,13 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Vehiculo"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:visibility="visible" />
+
+    <Spinner
+        android:id="@+id/spn_vehiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/edt_modelo"
@@ -59,4 +65,5 @@
         android:onClick="onClick"
         android:text="Salir"
         />
+
 </LinearLayout>
