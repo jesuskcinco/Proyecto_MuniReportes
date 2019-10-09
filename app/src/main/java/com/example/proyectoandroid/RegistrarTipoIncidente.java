@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class RegistrarTipoIncidente extends AppCompatActivity {
     Bundle datos2;
-    EditText codigo,descripcion,estado,desbus;
+    EditText descripcion,estado,desbus;
     String dni;
     RadioButton c1,c2;
     ConexionSQLiteHelper con,con2;
@@ -38,7 +38,7 @@ public class RegistrarTipoIncidente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_tipo_incidente);
-        codigo= (EditText) findViewById(R.id.edtcodigotipinc);
+
         descripcion= (EditText) findViewById(R.id.edtdestipinc);
         //estado=(EditText) findViewById(R.id.txt_correo);
         desbus= (EditText) findViewById(R.id.edtbustipo);
@@ -51,6 +51,7 @@ public class RegistrarTipoIncidente extends AppCompatActivity {
         if (dni.equals("")){
             dni="70546327";
         }
+        //CODIGO PARA LISTAR LOS INCIDENTES
         con=new ConexionSQLiteHelper(this,"bd_aplicativo",null,1);
         listviewtipoincidentes= (ListView) findViewById(R.id.listviewtincidentes);
         consultarlistatipoincidentes();
@@ -84,7 +85,7 @@ public class RegistrarTipoIncidente extends AppCompatActivity {
 
         while (cursor.moveToNext()){
             tipoinc= new TipoIncidente();
-            tipoinc.setCodigo(cursor.getString(0));
+            tipoinc.setCodigo(cursor.getInt(0));
             tipoinc.setDescripcion(cursor.getString(1));
             tipoinc.setEstado(cursor.getString(2));
             tipoinc.setDniregistra(cursor.getString(3));
@@ -115,7 +116,6 @@ public class RegistrarTipoIncidente extends AppCompatActivity {
     }
 
     private void registrartipoincidente() {
-        String codigo_tipo =codigo.getText().toString();
         String desc_tipo = descripcion.getText().toString();
         String usuario= dni;
         String estado2="";
@@ -128,18 +128,18 @@ public class RegistrarTipoIncidente extends AppCompatActivity {
         db= con2.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        if (!codigo_tipo.isEmpty() && !desc_tipo.isEmpty() && !estado2.isEmpty()) {
-            Cursor cursor2=db.rawQuery("select codigo_incidente from TIPOINCIDENTE where codigo_incidente='"+codigo_tipo+"'",null);
+        if (!desc_tipo.isEmpty() && !estado2.isEmpty()) {
+            Cursor cursor2=db.rawQuery("select tipo_incidente from TIPOINCIDENTE where tipo_incidente='"+desc_tipo+"'",null);
             if(cursor2.moveToFirst()){
-                Toast.makeText(getApplicationContext(), "El incidente con "+codigo_tipo+" ya ha sido registrado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "El incidente con "+desc_tipo+" ya ha sido registrado", Toast.LENGTH_SHORT).show();
 
                 //validar="";
-                codigo.setText("");
+                descripcion.setText("");
                 db.close();
 
             }else {
 
-                values.put(Utilitario.CAMPO_CODIGO, codigo_tipo);
+                //values.put(Utilitario.CAMPO_CODIGO, codigo_tipo);
                 values.put(Utilitario.CAMPO_DESCRIPCION, desc_tipo);
                 values.put(Utilitario.CAMPO_ESTADO, estado2);
                 values.put(Utilitario.CAMPO_DNI_REG, usuario);
@@ -153,7 +153,6 @@ public class RegistrarTipoIncidente extends AppCompatActivity {
                 startActivity(ven2);
 
 
-                    codigo.setText("");
                     descripcion.setText("");
 
             }

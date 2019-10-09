@@ -20,6 +20,7 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(Utilitario.CREAR_TABLA_VEHICULO);
         db.execSQL(Utilitario.CREAR_TABLA_TIPO_INCIDENTE);
         db.execSQL(Utilitario.CREAR_TABLA_NIVEL_INCIDENTE);
+        db.execSQL(Utilitario.CREAR_TABLA_REPORTE);
     }
 
     @Override
@@ -28,6 +29,7 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+Utilitario.TABLE_MOTOTAXI);
         db.execSQL("DROP TABLE IF EXISTS "+Utilitario.TABLE_TIPO_INCIDENTE);
         db.execSQL("DROP TABLE IF EXISTS "+Utilitario.TABLE_NIVEL_INCIDENTE);
+        db.execSQL("DROP TABLE IF EXISTS "+Utilitario.TABLE_REPORTE_INCIDENTE);
         onCreate(db);
     }
 }

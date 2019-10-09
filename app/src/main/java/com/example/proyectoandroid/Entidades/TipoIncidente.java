@@ -2,11 +2,11 @@ package com.example.proyectoandroid.Entidades;
 
 public class TipoIncidente {
     public String descripcion;
-    public String codigo;
+    public Integer codigo;
     public String estado;
     public String dniregistra;
 
-    public TipoIncidente(String descripcion, String codigo, String estado, String dniregistra) {
+    public TipoIncidente(String descripcion, Integer codigo, String estado, String dniregistra) {
         this.descripcion = descripcion;
         this.codigo = codigo;
         this.estado = estado;
@@ -23,11 +23,11 @@ public class TipoIncidente {
         this.descripcion = descripcion;
     }
 
-    public String getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 

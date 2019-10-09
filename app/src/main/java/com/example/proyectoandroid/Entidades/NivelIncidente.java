@@ -3,21 +3,22 @@ package com.example.proyectoandroid.Entidades;
 public class NivelIncidente {
 
 
-    public String idnivinc;
+    public Integer idnivinc;
     public String descripcion;
 
-    public NivelIncidente(String idnivinc, String descripcion) {
+
+    public NivelIncidente(Integer idnivinc, String descripcion) {
         this.idnivinc = idnivinc;
         this.descripcion = descripcion;
     }
     public NivelIncidente() {
 
     }
-    public String getIdnivinc() {
+    public Integer getIdnivinc() {
         return idnivinc;
     }
 
-    public void setIdnivinc(String idnivinc) {
+    public void setIdnivinc(Integer idnivinc) {
         this.idnivinc = idnivinc;
     }
 

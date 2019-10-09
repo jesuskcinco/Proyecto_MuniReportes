@@ -8,15 +8,130 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/edtasunto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Asunto"
-        android:inputType="textPersonName" />
+        android:inputType="textCapCharacters"/>
+    <Spinner
+        android:id="@+id/spn_tipo_reporte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
+    <Spinner
+        android:id="@+id/spn_nivel_reporte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Grabar"
+        android:onClick="onClick"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/lyobjetos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Implica Vehiculos"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <RadioGroup
+        android:id="@+id/rbg1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <RadioButton
+            android:id="@+id/rdbsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Si"
+            android:onClick="Habilitarg2"/>
+        <RadioButton
+            android:id="@+id/rdbno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:onClick="Deshabilitarg2"/>
+    </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Vehiculo"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <RadioGroup
+        android:id="@+id/rbg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rdbmoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mototaxi"
+            android:onClick="clicmoto"/>
+
+        <RadioButton
+            android:id="@+id/rdbotro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Otro Vehiculo"
+            android:onClick="clicotroveh"/>
+    </RadioGroup>
+
+
+        <Spinner
+            android:id="@+id/spn_placas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <CheckBox
+            android:id="@+id/chksindatos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sin datos del vehiculo"
+            android:onClick="sindatoschk"/>
+        <EditText
+            android:id="@+id/placaotro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Placa otro ve"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/marcaotro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Marca"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/modelootro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Modelo"
+            android:inputType="textPersonName" />
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/edt_desc_reporte"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -24,20 +139,59 @@
         android:hint="Descripción"
         android:inputType="textMultiLine" />
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-    <RadioButton
-        android:id="@+id/radioButton"
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RadioButton" />
+        android:text="Seleccionar Imagen" />
 
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="98dp"
+            android:layout_height="33dp"
+            android:maxWidth="98dp"
+            android:maxHeight="33dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <Button
+            android:id="@+id/button19"
+            android:layout_width="222dp"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar Imagen"
+            android:onClick="subirimg"/>
+
+        <EditText
+            android:id="@+id/edtgps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+
+        <Button
+            android:id="@+id/btngps2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+        android:id="@+id/button16"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="RadioButton" />
-    </RadioGroup>
+        android:text="Registrar"
+        android:onClick="onClickReg"/>
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancelar" />
+
+
+
+    </LinearLayout>
+</ScrollView>
+
+
 </androidx.appcompat.widget.LinearLayoutCompat>
