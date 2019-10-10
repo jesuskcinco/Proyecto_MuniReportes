@@ -42,7 +42,10 @@ import com.example.proyectoandroid.Entidades.Vehiculo;
 import com.example.proyectoandroid.Utilidades.Utilitario;
 
 import java.io.ByteArrayOutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class RegistrarIncidente extends AppCompatActivity {
 
@@ -403,6 +406,8 @@ public class RegistrarIncidente extends AppCompatActivity {
         String placaotro2= placaotro.getText().toString();
         String modelootro2= modelootro.getText().toString();
         String marcaotro2= marcaotro.getText().toString();
+        String lattext= latitud.toString();
+        String longtext= longitud.toString();
         db= con.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -410,6 +415,11 @@ public class RegistrarIncidente extends AppCompatActivity {
         values.put(Utilitario.CAMPO_IMAGEN_1,img1);
         values.put(Utilitario.CAMPO_IMAGEN_2,img2);
         values.put(Utilitario.CAMPO_IMAGEN_3,img3);
+        values.put(Utilitario.CAMPO_LATITUD_GPS,lattext);
+        values.put(Utilitario.CAMPO_LONGITUD_GPS,longtext);
+        if(!descripreporte.isEmpty()){
+
+
         if (rb2.isChecked() == true) {
             values.put(Utilitario.CAMPO_PLACA,"null");
             values.put(Utilitario.CAMPO_PLACA_OTRO,"null");
@@ -451,7 +461,16 @@ public class RegistrarIncidente extends AppCompatActivity {
                 }
             }
         }
-        int resultado= db.update("REPORTEINCIDENTE",values,"cod_reporte="+34,null);
+        Date fechaActual = new Date();
+        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        //String fecha=(String) formatoFecha.format(fechaActual);
+        values.put(Utilitario.CAMPO_FECHA,formatoFecha.format(fechaActual));
+        values.put(Utilitario.CAMPO_ESTADO_REPORTE,"Abierto");
+        int resultado= db.update("REPORTEINCIDENTE",values,"cod_reporte="+cod_reporte,null);
+            Intent ven2= new Intent(RegistrarIncidente.this,RegistrarIncidente.class);
+            //ven2.putExtra("pasar_placa",var_placa);
+            ven2.putExtra("pasar_usuario",dnipasado);
+            startActivity(ven2);
         //db.rawQuery("INSERT INTO REPORTEINCIDENTE (imagen1,imagen2,imagen3) VALUES(?,?,?) WHERE cod_reporte="+34,null);
 
        // SQLiteStatement insert = db.compileStatement("UPDATE REPORTEINCIDENTE SET imagen1=?, imagen2=?,imagen3=? WHERE cod_reporte=34");
@@ -466,6 +485,10 @@ public class RegistrarIncidente extends AppCompatActivity {
 
         }else {
             Toast.makeText(this,"El reporte no existe",Toast.LENGTH_SHORT).show();
+        }
+
+        }else{
+            Toast.makeText(this,"Ingrese la descripción del reporte",Toast.LENGTH_SHORT).show();
         }
         db.close();
     }

@@ -67,11 +67,14 @@ public class Utilitario {
     public static final String CAMPO_PLACA_OTRO="placa_otro";
     public static final String CAMPO_MARCA_OTRO="marca_otro";
     public static final String CAMPO_MODELO_OTRO="modelo_otro";
+    public static final String CAMPO_FECHA="fecha_reporte";
+    public static final String CAMPO_ESTADO_REPORTE="estado_reporte";
     //CAMPO_USUARIO
 
     public static final String CREAR_TABLA_REPORTE="CREATE TABLE "+TABLE_REPORTE_INCIDENTE+
             " ("+CAMPO_ID_REPORTE+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_ASUNTO+" TEXT,"+CAMPO_CODIGO+" TEXT," +
             CAMPO_ID_NIV_INC+" TEXT,"+CAMPO_DESC_REPORTE+" TEXT,"+CAMPO_IMAGEN_1+" BLOB,"+CAMPO_IMAGEN_2+" BLOB,"+
-            CAMPO_IMAGEN_3+" BLOB,"+CAMPO_LATITUD_GPS+" DECIMAL(10,8),"+CAMPO_LONGITUD_GPS+" DECIMAL,"+CAMPO_DIRECCION_GPS+" TEXT,"+
-            CAMPO_PLACA+" TEXT,"+CAMPO_PLACA_OTRO+" TEXT,"+CAMPO_MARCA_OTRO+" TEXT,"+CAMPO_MODELO_OTRO+" TEXT,"+CAMPO_DNI+" TEXT)";
+            CAMPO_IMAGEN_3+" BLOB,"+CAMPO_LATITUD_GPS+" TEXT,"+CAMPO_LONGITUD_GPS+" TEXT,"+CAMPO_DIRECCION_GPS+" TEXT,"+
+            CAMPO_PLACA+" TEXT,"+CAMPO_PLACA_OTRO+" TEXT,"+CAMPO_MARCA_OTRO+" TEXT,"+CAMPO_MODELO_OTRO+" TEXT,"+CAMPO_FECHA+" TEXT,"
+            +CAMPO_ESTADO_REPORTE+" TEXT,"+CAMPO_DNI+" TEXT)";
 }

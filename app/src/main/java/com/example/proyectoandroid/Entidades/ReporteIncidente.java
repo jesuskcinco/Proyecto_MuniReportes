@@ -14,16 +14,18 @@ public class ReporteIncidente {
     public String placaotro;
     public String marcarotro;
     public String modelootro;
-    public Double latitud;
-    public Double longitud;
+    public String latitud;
+    public String longitud;
     public String direccion;
     public String usuario;
+    public String fecha;
+    public String estado;
 
     public ReporteIncidente() {
 
     }
 
-    public ReporteIncidente(Integer codreporte, String asunto, Integer tipoinc, Integer nivelinc, String descripcion, byte[] image1, byte[] image2, byte[] image3, String placamoto, String placaotro, String marcarotro, String modelootro, Double latitud, Double longitud, String direccion, String usuario) {
+    public ReporteIncidente(Integer codreporte, String asunto, Integer tipoinc, Integer nivelinc, String descripcion, byte[] image1, byte[] image2, byte[] image3, String placamoto, String placaotro, String marcarotro, String modelootro, String latitud, String longitud, String direccion, String usuario,String fecha, String estado) {
         this.codreporte = codreporte;
         this.asunto = asunto;
         this.tipoinc = tipoinc;
@@ -40,6 +42,8 @@ public class ReporteIncidente {
         this.longitud = longitud;
         this.direccion = direccion;
         this.usuario = usuario;
+        this.fecha= fecha;
+        this.estado=estado;
     }
 
     public Integer getCodreporte() {
@@ -138,19 +142,19 @@ public class ReporteIncidente {
         this.modelootro = modelootro;
     }
 
-    public Double getLatitud() {
+    public String getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(Double latitud) {
+    public void setLatitud(String latitud) {
         this.latitud = latitud;
     }
 
-    public Double getLongitud() {
+    public String getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(Double longitud) {
+    public void setLongitud(String longitud) {
         this.longitud = longitud;
     }
 
@@ -168,5 +172,21 @@ public class ReporteIncidente {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }
