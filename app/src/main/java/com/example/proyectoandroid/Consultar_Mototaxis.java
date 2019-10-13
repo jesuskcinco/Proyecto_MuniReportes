@@ -41,15 +41,11 @@ public class Consultar_Mototaxis extends AppCompatActivity {
             usupas="70546327";
         }
         tvplaca= (TextView) findViewById(R.id.etplaca);
-
         con=new ConexionSQLiteHelper(this,"bd_aplicativo",null,1);
         listviewvehiculos= (ListView) findViewById(R.id.listviewmotos);
-
         consultarlistavehiculos();
-
         final ArrayAdapter adaptador= new ArrayAdapter(this,android.R.layout.simple_list_item_1,listainformacion);
         listviewvehiculos.setAdapter(adaptador);
-
         listviewvehiculos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {

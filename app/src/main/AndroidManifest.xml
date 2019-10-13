@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PanelIncidentes"></activity>
+        <activity android:name=".ListarRecycler"></activity>
+        <activity android:name=".PanelIncidentes" />
         <activity android:name=".RegistrarIncidente" />
         <activity android:name=".RegistrarNivelncidente" />
         <activity android:name=".RegistrarTipoIncidente" />
@@ -29,10 +30,10 @@
         <activity android:name=".RegistrarUsuario" />
         <activity android:name=".MainActivity" />
     </application>
+
     <uses-feature android:name="android.hardware.location.gps" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>
