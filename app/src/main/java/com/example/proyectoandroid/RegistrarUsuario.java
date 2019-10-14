@@ -11,15 +11,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.proyectoandroid.Utilidades.GlobalVariables;
 import com.example.proyectoandroid.Utilidades.Utilitario;
 
 import java.util.regex.Pattern;
 
 public class RegistrarUsuario extends AppCompatActivity {
-
+    GlobalVariables globalVariables;
     EditText ls_dni,ls_nombre,ls_apellido,ls_clave,ls_usuario,ls_correo;
     String validar;
     SQLiteDatabase db;
+    String dni;
     String pater="^(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z]).{8,}$";
     //private static final Pattern PASSWORD_PATTERN=Pattern.compile(  "^"+"(?=.*[0-9])"+
     //                                                                //"(?=.*[a-z])"+
@@ -36,6 +38,7 @@ public class RegistrarUsuario extends AppCompatActivity {
         ls_nombre= (EditText) findViewById(R.id.txt_nombres);
         ls_apellido= (EditText) findViewById(R.id.txt_apellidos);
         ls_dni= (EditText) findViewById(R.id.txt_dni);
+        globalVariables = (GlobalVariables)getApplicationContext();
 
     }
     public void onClick(View view) {

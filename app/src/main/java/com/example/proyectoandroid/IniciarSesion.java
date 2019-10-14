@@ -28,7 +28,19 @@ public class IniciarSesion extends AppCompatActivity {
         edclave= (EditText) findViewById(R.id.edclave1);
     }
     public void onClick7 (View view){
-        logueo();
+        Intent miIntent=null;
+        switch (view.getId()){
+
+            case R.id.button5:
+                logueo();
+                break;
+            case R.id.btncrear:
+                miIntent= new Intent(IniciarSesion.this, RegistrarUsuario.class);
+                //miIntent.putExtra("pasar_usuario",dnipasado);
+                break;
+        }
+        if (miIntent!=null) startActivity(miIntent);
+
     }
     public void logueo(){
         ConexionSQLiteHelper cn= new ConexionSQLiteHelper(this,"bd_aplicativo",null,1);

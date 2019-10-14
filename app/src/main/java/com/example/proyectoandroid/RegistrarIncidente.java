@@ -89,7 +89,7 @@ public class RegistrarIncidente extends AppCompatActivity {
         btngps=(Button) findViewById(R.id.btngps2);
         txtgps= findViewById(R.id.edtgps);
         ly= findViewById(R.id.lyobjetos);
-        //ly.setVisibility(View.INVISIBLE);
+        ly.setVisibility(View.INVISIBLE);
         rb1= findViewById(R.id.rdbsi);
         rb2= findViewById(R.id.rdbno);
         rb3= findViewById(R.id.rdbmoto);
@@ -263,7 +263,7 @@ public class RegistrarIncidente extends AppCompatActivity {
                 Log.i("idcombo2", idnivelincidente + "");
                 values.put(Utilitario.CAMPO_ID_NIV_INC, idnivelincidente);
                 values.put(Utilitario.CAMPO_DNI,var_dni);
-
+                values.put(Utilitario.CAMPO_ESTADO,"Incompleto");
                 Long idResultante = db.insert(Utilitario.TABLE_REPORTE_INCIDENTE, Utilitario.CAMPO_ID_REPORTE, values);
 
 

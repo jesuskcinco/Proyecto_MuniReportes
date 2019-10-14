@@ -32,6 +32,12 @@
         android:hint="Ingresar"
         android:onClick="onClick7"/>
     <Button
+        android:id="@+id/btncrear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear cuenta"
+        android:onClick="onClick7"/>
+    <Button
         android:id="@+id/btnolvidar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
