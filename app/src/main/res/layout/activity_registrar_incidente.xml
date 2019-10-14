@@ -182,12 +182,12 @@
         android:text="Registrar"
         android:onClick="onClickReg"/>
 
-    <Button
-        android:id="@+id/button17"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cancelar"
-        android:onClick="onClick"/>
+        <Button
+            android:id="@+id/button17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:onClick="onClick"/>
 
 
 

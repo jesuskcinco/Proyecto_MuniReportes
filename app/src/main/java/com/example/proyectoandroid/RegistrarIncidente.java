@@ -227,7 +227,7 @@ public class RegistrarIncidente extends AppCompatActivity {
                 grabarcabecera();
                 break;
             case R.id.button17:
-                miIntent= new Intent(RegistrarIncidente.this, MainActivity.class);
+                miIntent= new Intent(RegistrarIncidente.this, IniciarSesion.class);
                 miIntent.putExtra("pasar_usuario",dnipasado);
                 break;
         }
@@ -259,11 +259,11 @@ public class RegistrarIncidente extends AppCompatActivity {
                 Log.i("TAMAÑO", nivinclist.size() + "");
                 Log.i("idcombo2", idcombo2 + "");
                 Log.i("idcombo2 - 1", (idcombo2 - 1) + "");
-                int idnivelincidente = nivinclist.get(idcombo - 1).getIdnivinc();
+                int idnivelincidente = nivinclist.get(idcombo2 - 1).getIdnivinc();
                 Log.i("idcombo2", idnivelincidente + "");
                 values.put(Utilitario.CAMPO_ID_NIV_INC, idnivelincidente);
                 values.put(Utilitario.CAMPO_DNI,var_dni);
-                values.put(Utilitario.CAMPO_ESTADO,"Incompleto");
+                values.put(Utilitario.CAMPO_ESTADO_REPORTE,"Incompleto");
                 Long idResultante = db.insert(Utilitario.TABLE_REPORTE_INCIDENTE, Utilitario.CAMPO_ID_REPORTE, values);
 
 

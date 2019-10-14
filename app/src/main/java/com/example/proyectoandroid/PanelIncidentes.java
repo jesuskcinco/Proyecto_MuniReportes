@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectoandroid.Adaptadores.AdaptadorReportes;
@@ -27,7 +28,8 @@ import java.util.ArrayList;
 
 public class PanelIncidentes extends AppCompatActivity {
     Bundle datos2;
-    String usupas;
+    String usupas,codreporte;
+    TextView codrep;
     RecyclerView mRecyclerview;
     ArrayList<ReporteIncidente> listdatosreportes;
     ArrayList<ReporteIncidente> listarreportesinc;
@@ -45,6 +47,7 @@ public class PanelIncidentes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panel_incidentes);
+        codrep=(TextView) findViewById(R.id.codrep);
         globalVariables = (GlobalVariables)getApplicationContext();
         //asignamos el recycler
         con=new ConexionSQLiteHelper(this,"bd_aplicativo",null,1);
@@ -64,6 +67,7 @@ public class PanelIncidentes extends AppCompatActivity {
        // }
         ArrayAdapter<CharSequence> adaptador2=new ArrayAdapter(this,android.R.layout.simple_spinner_item,listatiposinc);
         spntipos.setAdapter(adaptador2);
+        //metodo que realizar la actualizacion del panel de incidentes
         spntipos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -95,7 +99,19 @@ public class PanelIncidentes extends AppCompatActivity {
         //}
 
         AdaptadorReportes adaptador=new AdaptadorReportes(listarreportesinc);
+        mRecyclerview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                codreporte=codrep.toString();
+                Toast.makeText(getApplicationContext(), "Se obtiene el reporte " + codreporte, Toast.LENGTH_LONG).show();
+                //Intent detalle= new Intent(PanelIncidentes.this,DetalleIncidente.class);
+                //detalle.putExtra("pasar_codigo",codreporte);
+                //startActivity(detalle);
+            }
+        });
         mRecyclerview.setAdapter(adaptador);
+
+
     }
 
 

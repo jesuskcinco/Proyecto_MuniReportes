@@ -15,8 +15,9 @@ import com.example.proyectoandroid.R;
 
 import java.util.ArrayList;
 
-public class AdaptadorReportes extends RecyclerView.Adapter<AdaptadorReportes.ViewHolderReportInc> {
+public class AdaptadorReportes extends RecyclerView.Adapter<AdaptadorReportes.ViewHolderReportInc> implements View.OnClickListener {
     ArrayList<ReporteIncidente> listarreportesinc;
+    public View.OnClickListener listener;
     //creamos un array y su constructor para recibir el parametro del recycler view
     public AdaptadorReportes(ArrayList<ReporteIncidente> listarreportesinc) {
         this.listarreportesinc = listarreportesinc;
@@ -27,23 +28,40 @@ public class AdaptadorReportes extends RecyclerView.Adapter<AdaptadorReportes.Vi
     public ViewHolderReportInc onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //asignamos la actividad que se repetira en el panel de incidentes con el recycler view
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_listar_recycler,null,false);
+        view.setOnClickListener(this);
         return new ViewHolderReportInc(view);
     }
     //comunicacion del apaptador al recyclerview
     @Override
     public void onBindViewHolder(@NonNull ViewHolderReportInc holder, int position) {
+        if(listarreportesinc.get(position).getImage1()!=null){
+            holder.img1.setImageBitmap(BitmapFactory.decodeByteArray(listarreportesinc.get(position).getImage1(),
+                    0,listarreportesinc.get(position).getImage1().length));
+        }else {
+            holder.img1.setImageResource(R.drawable.sinimagen3);
+        }
 
-        holder.img1.setImageBitmap(BitmapFactory.decodeByteArray(listarreportesinc.get(position).getImage1(),
-                0,listarreportesinc.get(position).getImage1().length));
+
         holder.tv_asunto.setText("Asunto: "+listarreportesinc.get(position).getAsunto());
         holder.tv_estado.setText("Estado: "+listarreportesinc.get(position).getEstado());
         holder.tv_descrip.setText("Descripción: "+listarreportesinc.get(position).getDescripcion());
-        holder.codrep.setText(("Código de reporte:"+listarreportesinc.get(position).getCodreporte()));
+        holder.codrep.setText((""+listarreportesinc.get(position).getCodreporte()));
     }
     //recibimos los objetos del cardview
     @Override
     public int getItemCount() {
         return listarreportesinc.size();
+    }
+
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener=listener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(listener!=null){
+            listener.onClick(v);
+        }
     }
 
     public class ViewHolderReportInc extends RecyclerView.ViewHolder {
