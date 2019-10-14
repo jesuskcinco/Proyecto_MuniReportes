@@ -11,12 +11,13 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.proyectoandroid.Utilidades.GlobalVariables;
 import com.example.proyectoandroid.Utilidades.Utilitario;
 
 import java.sql.SQLClientInfoException;
 
 public class IniciarSesion extends AppCompatActivity {
-
+    GlobalVariables globalVariables;
     EditText edclave,eddni;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,8 @@ public class IniciarSesion extends AppCompatActivity {
 
                 if (dni.equals(dnibd) && clave.equals(clavebd)){
                     Intent ven= new Intent(this,MainActivity.class);
-
+                    globalVariables = (GlobalVariables)getApplicationContext();
+                    globalVariables.setDni(dnibd);
                     ven.putExtra("pasar_usuario",dnibd);
                     ven.putExtra("pasar_clave",clavebd);
                     startActivity(ven);
@@ -73,6 +75,7 @@ public class IniciarSesion extends AppCompatActivity {
         String dni2= "";
         String clave2="";
         Intent ven2= new Intent(IniciarSesion.this,MainActivity.class);
+
         ven2.putExtra("pasar_usuario",dni2);
         ven2.putExtra("pasar_clave",clave2);
         startActivity(ven2);

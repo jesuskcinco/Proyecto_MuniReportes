@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class AdaptadorReportes extends RecyclerView.Adapter<AdaptadorReportes.ViewHolderReportInc> {
     ArrayList<ReporteIncidente> listarreportesinc;
-
+    //creamos un array y su constructor para recibir el parametro del recycler view
     public AdaptadorReportes(ArrayList<ReporteIncidente> listarreportesinc) {
         this.listarreportesinc = listarreportesinc;
     }
@@ -25,10 +25,11 @@ public class AdaptadorReportes extends RecyclerView.Adapter<AdaptadorReportes.Vi
     @NonNull
     @Override
     public ViewHolderReportInc onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //asignamos la actividad que se repetira en el panel de incidentes con el recycler view
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_listar_recycler,null,false);
         return new ViewHolderReportInc(view);
     }
-
+    //comunicacion del apaptador al recyclerview
     @Override
     public void onBindViewHolder(@NonNull ViewHolderReportInc holder, int position) {
 
@@ -39,7 +40,7 @@ public class AdaptadorReportes extends RecyclerView.Adapter<AdaptadorReportes.Vi
         holder.tv_descrip.setText("Descripción: "+listarreportesinc.get(position).getDescripcion());
         holder.codrep.setText(("Código de reporte:"+listarreportesinc.get(position).getCodreporte()));
     }
-
+    //recibimos los objetos del cardview
     @Override
     public int getItemCount() {
         return listarreportesinc.size();

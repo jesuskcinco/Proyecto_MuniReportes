@@ -28,10 +28,15 @@
         android:id="@+id/button5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Ingresar"
         android:hint="Ingresar"
         android:onClick="onClick7"/>
-
+    <Button
+        android:id="@+id/btnolvidar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Olvidó su usuario/clave"
+        android:onClick="onClick7"/>
     <Button
         android:id="@+id/button7"
         android:layout_width="match_parent"

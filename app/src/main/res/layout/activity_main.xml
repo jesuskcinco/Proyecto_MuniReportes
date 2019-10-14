@@ -85,4 +85,10 @@
         android:layout_height="wrap_content"
         android:text="Panel de Incidentes"
         android:onClick="onClick"/>
+    <Button
+        android:id="@+id/btnsalirfinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SALIR"
+        android:onClick="onClick"/>
 </LinearLayout>

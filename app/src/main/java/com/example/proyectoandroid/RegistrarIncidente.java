@@ -220,13 +220,28 @@ public class RegistrarIncidente extends AppCompatActivity {
 
     //método para grabar la cabecera del reporte
     public void onClick(View view) {
+        Intent miIntent=null;
+        switch (view.getId()){
+
+            case R.id.button18:
+                grabarcabecera();
+                break;
+            case R.id.button17:
+                miIntent= new Intent(RegistrarIncidente.this, MainActivity.class);
+                miIntent.putExtra("pasar_usuario",dnipasado);
+                break;
+        }
+        if (miIntent!=null) startActivity(miIntent);
+    }
+
+    private void grabarcabecera() {
         String var_asunto =asunto.getText().toString();
         String var_dni= dnipasado;
         db= con.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         if(!var_asunto.isEmpty()){
-                values.put(Utilitario.CAMPO_ASUNTO,var_asunto);
+            values.put(Utilitario.CAMPO_ASUNTO,var_asunto);
 
             //aqui se obtienen los datos del combo
             int idcombo = (int) tipo_inv.getSelectedItemId();

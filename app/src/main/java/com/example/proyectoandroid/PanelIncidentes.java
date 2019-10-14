@@ -4,18 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.proyectoandroid.Adaptadores.AdaptadorReportes;
 import com.example.proyectoandroid.Entidades.ReporteIncidente;
+import com.example.proyectoandroid.Utilidades.GlobalVariables;
 import com.example.proyectoandroid.Utilidades.Utilitario;
 
 import java.util.ArrayList;
 
 public class PanelIncidentes extends AppCompatActivity {
+    Bundle datos2;
+    String usupas;
     RecyclerView mRecyclerview;
     ArrayList<ReporteIncidente> listdatosreportes;
     ArrayList<ReporteIncidente> listarreportesinc;
@@ -23,10 +28,12 @@ public class PanelIncidentes extends AppCompatActivity {
     RecyclerView.LayoutManager mlayoutmanager;
     SQLiteDatabase db;
     ConexionSQLiteHelper con;
+    GlobalVariables globalVariables;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panel_incidentes);
+        globalVariables = (GlobalVariables)getApplicationContext();
         //asignamos el recycler
         con=new ConexionSQLiteHelper(this,"bd_aplicativo",null,1);
         mRecyclerview= findViewById(R.id.idrecycler);
@@ -63,6 +70,21 @@ public class PanelIncidentes extends AppCompatActivity {
         }
         //obtenerinformacion();
         db.close();
+    }
+
+    public void onClick(View view) {
+        Intent miIntent=null;
+        switch (view.getId()){
+
+            case R.id.btncanpan:
+                //usupas=datos2.getString("pasar_usuario");
+
+
+                miIntent= new Intent(PanelIncidentes.this, MainActivity.class);
+                miIntent.putExtra("pasar_usuario",globalVariables.getDni());
+                break;
+        }
+        if (miIntent!=null) startActivity(miIntent);
     }
     //private void obtenerinformacion(){
     //    listdatosreportes= new ArrayList<ReporteIncidente>();
