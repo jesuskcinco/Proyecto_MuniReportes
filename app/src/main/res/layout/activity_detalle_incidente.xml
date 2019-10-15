@@ -33,24 +33,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Implica Vehiculos"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tipo de Vehiculo"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-
-
 
             <Spinner
                 android:id="@+id/spn_placas"
@@ -58,12 +40,6 @@
                 android:layout_height="wrap_content" />
 
 
-            <CheckBox
-                android:id="@+id/chksindatos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sin datos del vehiculo"
-                android:onClick="sindatoschk"/>
             <EditText
                 android:id="@+id/placaotro"
                 android:layout_width="wrap_content"
@@ -124,7 +100,13 @@
                 android:layout_height="wrap_content"
                 android:text="Cancelar"
                 />
-
+            <Button
+                android:id="@+id/okver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancelar"
+                android:onClick="onClick"
+                />
 
 
         </LinearLayout>

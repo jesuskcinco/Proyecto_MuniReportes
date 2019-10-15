@@ -68,6 +68,7 @@ public class PanelIncidentes extends AppCompatActivity {
         ArrayAdapter<CharSequence> adaptador2=new ArrayAdapter(this,android.R.layout.simple_spinner_item,listatiposinc);
         spntipos.setAdapter(adaptador2);
         //metodo que realizar la actualizacion del panel de incidentes
+
         spntipos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -98,18 +99,19 @@ public class PanelIncidentes extends AppCompatActivity {
         //    reportexfiltro();
         //}
 
-        AdaptadorReportes adaptador=new AdaptadorReportes(listarreportesinc);
-        mRecyclerview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                codreporte=codrep.toString();
-                Toast.makeText(getApplicationContext(), "Se obtiene el reporte " + codreporte, Toast.LENGTH_LONG).show();
+        AdaptadorReportes adaptadorprinc=new AdaptadorReportes(listarreportesinc);
+        //adaptadorprinc.setOnClickListener(new View.OnClickListener() {
+         //   @Override
+        //    public void onClick(View v) {
+         //       codreporte=codrep.toString();
+         //       Toast.makeText(getApplicationContext(), "Se obtiene el reporte" +listarreportesinc.get(mRecyclerview.
+         //               getChildAdapterPosition(v)).getCodreporte(),Toast.LENGTH_SHORT).show();
                 //Intent detalle= new Intent(PanelIncidentes.this,DetalleIncidente.class);
                 //detalle.putExtra("pasar_codigo",codreporte);
                 //startActivity(detalle);
-            }
-        });
-        mRecyclerview.setAdapter(adaptador);
+           // }
+     //   });
+        mRecyclerview.setAdapter(adaptadorprinc);
 
 
     }
@@ -121,11 +123,35 @@ public class PanelIncidentes extends AppCompatActivity {
             case 0:
                 consultarlistareportes();
                 AdaptadorReportes adaptadora=new AdaptadorReportes(listarreportesinc);
+                adaptadora.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //codreporte=codrep.toString();
+                        Toast.makeText(getApplicationContext(), "Se obtiene el reporte" +listarreportesinc.get(mRecyclerview.
+                                getChildAdapterPosition(v)).getCodreporte(),Toast.LENGTH_SHORT).show();
+                        Intent detalle= new Intent(PanelIncidentes.this,DetalleIncidente.class);
+                        String variab=listarreportesinc.get(mRecyclerview.getChildAdapterPosition(v)).getCodreporte().toString();
+                        detalle.putExtra("pasar_codigo",variab);
+                        startActivity(detalle);
+                    }
+                });
                 mRecyclerview.setAdapter(adaptadora);
                 break;
             default:
                 consultarlistareportesxiltro();
                 AdaptadorReportes adaptadorb=new AdaptadorReportes(listarreportesinc);
+                adaptadorb.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //codreporte=codrep.toString();
+                        Toast.makeText(getApplicationContext(), "Se obtiene el reporte" +listarreportesinc.get(mRecyclerview.
+                                getChildAdapterPosition(v)).getCodreporte(),Toast.LENGTH_SHORT).show();
+                        Intent detalle= new Intent(PanelIncidentes.this,DetalleIncidente.class);
+                        detalle.putExtra("pasar_codigo",listarreportesinc.get(mRecyclerview.
+                                getChildAdapterPosition(v)).getCodreporte());
+                        startActivity(detalle);
+                    }
+                });
                 mRecyclerview.setAdapter(adaptadorb);
                 break;
         }
