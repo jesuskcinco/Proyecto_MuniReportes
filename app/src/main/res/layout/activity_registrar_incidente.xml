@@ -29,7 +29,12 @@
         android:layout_height="wrap_content"
         android:text="Grabar"
         android:onClick="onClick"/>
-
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:onClick="onClick"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -166,14 +171,14 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Coordenadas" />
+            android:hint="Coordenadas" />
         <EditText
             android:id="@+id/edtreferencia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Referencia" />
+            android:hint="Referencia" />
 
         <Button
             android:id="@+id/btngps2"
@@ -188,16 +193,8 @@
         android:text="Registrar"
         android:onClick="onClickReg"/>
 
-        <Button
-            android:id="@+id/button17"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cancelar"
-            android:onClick="onClick"/>
-
-
-
     </LinearLayout>
+
 </ScrollView>
 
 

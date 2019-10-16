@@ -63,7 +63,7 @@ public class RegistrarIncidente extends AppCompatActivity {
     LinearLayout ly;
     Integer cod_reporte;
     RadioButton rb1,rb2,rb3,rb4;
-    Button btngps;
+    Button btngps,btncanc;
     CheckBox chk1;
     ImageView img;
     Integer contimg=0;
@@ -87,6 +87,8 @@ public class RegistrarIncidente extends AppCompatActivity {
         descripcion=findViewById(R.id.edt_desc_reporte);
         dnipasado=datos2.getString("pasar_usuario");
         btngps=(Button) findViewById(R.id.btngps2);
+        btncanc=(Button) findViewById(R.id.button17);
+        btncanc.setVisibility(View.VISIBLE);
         referencia=findViewById(R.id.edtreferencia);
         txtgps= findViewById(R.id.edtgps);
         ly= findViewById(R.id.lyobjetos);
@@ -424,6 +426,7 @@ public class RegistrarIncidente extends AppCompatActivity {
         String marcaotro2= marcaotro.getText().toString();
         String lattext= latitud.toString();
         String longtext= longitud.toString();
+        String direcciongps=referencia.toString();
         db= con.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -433,6 +436,7 @@ public class RegistrarIncidente extends AppCompatActivity {
         values.put(Utilitario.CAMPO_IMAGEN_3,img3);
         values.put(Utilitario.CAMPO_LATITUD_GPS,lattext);
         values.put(Utilitario.CAMPO_LONGITUD_GPS,longtext);
+        values.put(Utilitario.CAMPO_DIRECCION_GPS,direcciongps);
         if(!descripreporte.isEmpty()){
 
 

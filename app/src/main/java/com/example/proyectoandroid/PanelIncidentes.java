@@ -147,8 +147,8 @@ public class PanelIncidentes extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Se obtiene el reporte" +listarreportesinc.get(mRecyclerview.
                                 getChildAdapterPosition(v)).getCodreporte(),Toast.LENGTH_SHORT).show();
                         Intent detalle= new Intent(PanelIncidentes.this,DetalleIncidente.class);
-                        detalle.putExtra("pasar_codigo",listarreportesinc.get(mRecyclerview.
-                                getChildAdapterPosition(v)).getCodreporte());
+                        String variab=listarreportesinc.get(mRecyclerview.getChildAdapterPosition(v)).getCodreporte().toString();
+                        detalle.putExtra("pasar_codigo",variab);
                         startActivity(detalle);
                     }
                 });
