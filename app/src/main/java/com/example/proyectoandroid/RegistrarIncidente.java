@@ -49,7 +49,7 @@ import java.util.Date;
 
 public class RegistrarIncidente extends AppCompatActivity {
 
-    EditText asunto,descripcion,placaotro,modelootro,marcaotro,txtgps;
+    EditText asunto,descripcion,placaotro,modelootro,marcaotro,txtgps,referencia;
 
     Spinner tipo_inv, niv_inc,placas_moto;
     String dnipasado;
@@ -87,6 +87,7 @@ public class RegistrarIncidente extends AppCompatActivity {
         descripcion=findViewById(R.id.edt_desc_reporte);
         dnipasado=datos2.getString("pasar_usuario");
         btngps=(Button) findViewById(R.id.btngps2);
+        referencia=findViewById(R.id.edtreferencia);
         txtgps= findViewById(R.id.edtgps);
         ly= findViewById(R.id.lyobjetos);
         ly.setVisibility(View.INVISIBLE);

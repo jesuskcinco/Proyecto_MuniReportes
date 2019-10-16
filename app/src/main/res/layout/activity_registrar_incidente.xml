@@ -166,8 +166,14 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
-
+            android:text="Coordenadas" />
+        <EditText
+            android:id="@+id/edtreferencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Referencia" />
 
         <Button
             android:id="@+id/btngps2"
