@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 public class PanelIncidentes extends AppCompatActivity {
     Bundle datos2;
-    String usupas,codreporte;
+    String usupas,codreporte,variab="";
     TextView codrep;
     RecyclerView mRecyclerview;
     ArrayList<ReporteIncidente> listdatosreportes;
@@ -130,7 +130,7 @@ public class PanelIncidentes extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Se obtiene el reporte" +listarreportesinc.get(mRecyclerview.
                                 getChildAdapterPosition(v)).getCodreporte(),Toast.LENGTH_SHORT).show();
                         Intent detalle= new Intent(PanelIncidentes.this,DetalleIncidente.class);
-                        String variab=listarreportesinc.get(mRecyclerview.getChildAdapterPosition(v)).getCodreporte().toString();
+                        variab=listarreportesinc.get(mRecyclerview.getChildAdapterPosition(v)).getCodreporte().toString();
                         detalle.putExtra("pasar_codigo",variab);
                         startActivity(detalle);
                     }
@@ -147,7 +147,7 @@ public class PanelIncidentes extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Se obtiene el reporte" +listarreportesinc.get(mRecyclerview.
                                 getChildAdapterPosition(v)).getCodreporte(),Toast.LENGTH_SHORT).show();
                         Intent detalle= new Intent(PanelIncidentes.this,DetalleIncidente.class);
-                        String variab=listarreportesinc.get(mRecyclerview.getChildAdapterPosition(v)).getCodreporte().toString();
+                        variab=listarreportesinc.get(mRecyclerview.getChildAdapterPosition(v)).getCodreporte().toString();
                         detalle.putExtra("pasar_codigo",variab);
                         startActivity(detalle);
                     }
