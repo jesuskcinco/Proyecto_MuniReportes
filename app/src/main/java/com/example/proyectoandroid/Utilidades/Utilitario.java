@@ -80,12 +80,56 @@ public class Utilitario {
 
     //Constantes para crear la tabla comentarios
     public static final String TABLE_COMENTARIO="COMENTARIOS";
-    public static final String CAMPO_COD_COMENTARIO="cod_comentario";
+    public static final String CAMPO_COD_COMENTARIO="codcomentario";
     public static final String CAMPO_COMENTARIO="comentario";
-    public static final String CAMPO_FECHA_COMENT="fecha_comentario";
+    public static final String CAMPO_FECHA_COMENT="fechacomenta";
 
     public static final String CREAR_TABLA_COMENTARIO="CREATE TABLE "+TABLE_COMENTARIO+
             " ("+CAMPO_COD_COMENTARIO+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_COMENTARIO+" TEXT,"+
             CAMPO_DNI+" TEXT,"+CAMPO_FECHA_COMENT+", TEXT)";
 
+    //constantes para crear la tabla mensajes
+    public static final String TABLE_MENSAJES="MENSAJES";
+    public static final String CAMPO_ID_MENSAJE="cod_mensaje";
+    public static final String CAMPO_MENSAJE="mensaje_not";
+    public static final String CAMPO_ELIMINAR="flgeliminar";
+
+    public static final String CREAR_TABLA_MENSAJE="CREATE TABLE "+TABLE_MENSAJES+
+            " ("+CAMPO_ID_MENSAJE+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_MENSAJE+" TEXT,"+CAMPO_FECHA+" TEXT," +CAMPO_DNI+" INTEGER,"+
+            CAMPO_ELIMINAR+" INTEGER)";
+
+    //constantes para crear la tabla sociedad
+    public static final String TABLE_SOCIEDAD="SOCIEDAD";
+    public static final String CAMPO_SOCIEDAD="idsociedad";
+    public static final String CAMPO_NOM_DUENIO="duenio";
+    public static final String CAMPO_INTEGRANTES="cantidadintegrantes";
+    public static final String CAMPO_NOM_SOCIEDAD="nombresociedad";
+    public static final String CAMPO_FECHA_REG_SOC="fecha";
+    public static final String CAMPO_DISTRITO="distrito";
+    public static final String CAMPO_ESTADO_SOCIEDAD="estado_sociedad";
+
+    public static final String CREAR_TABLA_SOCIEDAD="CREATE TABLE "+TABLE_SOCIEDAD+
+            " ("+CAMPO_SOCIEDAD+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_NOM_DUENIO+" TEXT,"+CAMPO_INTEGRANTES+" INTEGER," +
+            CAMPO_NOM_SOCIEDAD+" TEXT,"+CAMPO_FECHA_REG_SOC+" TEXT,"+CAMPO_DISTRITO+" TEXT,"+CAMPO_ESTADO_SOCIEDAD+" TEXT)";
+
+    //CONSTANTES PARA CREAR LA TABLA USUARIO SOCIEDAD
+    public static final String TABLE_USU_SOCIEDAD="USUARIOSOCIEDAD";
+    public static final String CAMPO_ID_USU_SOC="idregistrosociedad";
+    public static final String CAMPO_FECHA_REG_SO="fecha_reg_socie";
+    public static final String CAMPO_ESTADO_SOCIEDAD2="estado_sociedad";
+
+    public static final String CREAR_TABLA_USU_SOCIEDAD="CREATE TABLE "+TABLE_USU_SOCIEDAD+
+            " ("+CAMPO_ID_USU_SOC+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_SOCIEDAD+" INTEGER,"+CAMPO_PLACA+" TEXT," +
+            CAMPO_DNI+" INTEGER,"+CAMPO_FECHA_REG_SO+" TEXT,"+CAMPO_ESTADO_SOCIEDAD2+" TEXT)";
+
+    //CONSTANES PARA CREAR LA TABLA USUARIO_MOTO
+    public static final String TABLE_USU_MOTO="CONDUCTORMOTO";
+    public static final String CAMPO_ID_USU_MOTO="cod_registro_moto_cond";
+    public static final String CAMPO_OBSERVACION="observacion";
+    public static final String CAMPO_FECHA_USU_MOTO="fecha_usu_moto";
+    public static final String CAMPO_OK_DUENIO="ok_duenio";
+    public static final String CAMPO_ESTADO_MOTO_COND="estado_moto_cond";
+    public static final String CREAR_TABLA_MOTO_USUARIO="CREATE TABLE "+TABLE_USU_MOTO+
+            " ("+CAMPO_ID_USU_MOTO+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_DNI+" INTEGER,"+CAMPO_PLACA+" TEXT," +
+            CAMPO_OBSERVACION+" TEXT,"+CAMPO_FECHA_USU_MOTO+" TEXT,"+CAMPO_OK_DUENIO+" TEXT,"+CAMPO_ESTADO_MOTO_COND+" TEXT)";
 }

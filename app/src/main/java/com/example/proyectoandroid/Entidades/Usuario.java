@@ -13,15 +13,21 @@ public class Usuario {
     public Integer flgconductor;
     public Integer flgduenio;
     public Integer flgbloqueado;
+    public Integer idsociedad;
 
-
-    public Usuario(String nom_usuario, String clave, String correo, String nombres, String apellidos, Integer dni) {
+    public Usuario(String nom_usuario, String clave, String correo, String nombres, String apellidos, Integer dni, Integer flgcolaborador, Integer flgusuario, Integer flgconductor, Integer flgduenio, Integer flgbloqueado, Integer idsociedad) {
         this.nom_usuario = nom_usuario;
         this.clave = clave;
         this.correo = correo;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.dni = dni;
+        this.flgcolaborador = flgcolaborador;
+        this.flgusuario = flgusuario;
+        this.flgconductor = flgconductor;
+        this.flgduenio = flgduenio;
+        this.flgbloqueado = flgbloqueado;
+        this.idsociedad = idsociedad;
     }
 
     public Usuario() {
