@@ -77,4 +77,15 @@ public class Utilitario {
             CAMPO_IMAGEN_3+" BLOB,"+CAMPO_LATITUD_GPS+" TEXT,"+CAMPO_LONGITUD_GPS+" TEXT,"+CAMPO_DIRECCION_GPS+" TEXT,"+
             CAMPO_PLACA+" TEXT,"+CAMPO_PLACA_OTRO+" TEXT,"+CAMPO_MARCA_OTRO+" TEXT,"+CAMPO_MODELO_OTRO+" TEXT,"+CAMPO_FECHA+" TEXT,"
             +CAMPO_ESTADO_REPORTE+" TEXT,"+CAMPO_DNI+" TEXT)";
+
+    //Constantes para crear la tabla comentarios
+    public static final String TABLE_COMENTARIO="COMENTARIOS";
+    public static final String CAMPO_COD_COMENTARIO="cod_comentario";
+    public static final String CAMPO_COMENTARIO="comentario";
+    public static final String CAMPO_FECHA_COMENT="fecha_comentario";
+
+    public static final String CREAR_TABLA_COMENTARIO="CREATE TABLE "+TABLE_COMENTARIO+
+            " ("+CAMPO_COD_COMENTARIO+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_COMENTARIO+" TEXT,"+
+            CAMPO_DNI+" TEXT,"+CAMPO_FECHA_COMENT+", TEXT)";
+
 }

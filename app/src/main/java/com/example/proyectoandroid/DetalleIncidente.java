@@ -132,8 +132,8 @@ public class DetalleIncidente extends AppCompatActivity {
               modelootro.setVisibility(View.GONE);
               marcaotro.setVisibility(View.GONE);
           }
-
-
+          latit=listarreportesinc.get(i).getLatitud();
+          longit=listarreportesinc.get(i).getLongitud();
       }
     }
 
@@ -146,6 +146,11 @@ public class DetalleIncidente extends AppCompatActivity {
                 cor_reportedet="";
                 break;
             case R.id.btnverub:
+                miIntent= new Intent(DetalleIncidente.this, MapsActivity.class);
+                miIntent.putExtra("pasar_latitud",latit);
+                miIntent.putExtra("pasar_longitud",longit);
+                String reporte =cor_reportedet.toString();
+                miIntent.putExtra("pasar_codrep",reporte);
 
                 break;
         }

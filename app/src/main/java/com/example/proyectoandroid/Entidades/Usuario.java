@@ -8,6 +8,12 @@ public class Usuario {
     public String nombres;
     public String apellidos;
     public Integer dni;
+    public Integer flgcolaborador;
+    public Integer flgusuario;
+    public Integer flgconductor;
+    public Integer flgduenio;
+    public Integer flgbloqueado;
+
 
     public Usuario(String nom_usuario, String clave, String correo, String nombres, String apellidos, Integer dni) {
         this.nom_usuario = nom_usuario;
