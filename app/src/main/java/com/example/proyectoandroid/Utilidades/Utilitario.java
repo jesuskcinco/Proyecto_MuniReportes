@@ -86,7 +86,7 @@ public class Utilitario {
 
     public static final String CREAR_TABLA_COMENTARIO="CREATE TABLE "+TABLE_COMENTARIO+
             " ("+CAMPO_COD_COMENTARIO+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_COMENTARIO+" TEXT,"+
-            CAMPO_DNI+" TEXT,"+CAMPO_FECHA_COMENT+", TEXT)";
+            CAMPO_DNI+" TEXT,"+CAMPO_FECHA_COMENT+" TEXT)";
 
     //constantes para crear la tabla mensajes
     public static final String TABLE_MENSAJES="MENSAJES";

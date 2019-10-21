@@ -106,7 +106,7 @@ public class DetalleIncidente extends AppCompatActivity {
            }
 
            asunto.setText(""+listarreportesinc.get(i).getAsunto());
-           estado.setText(""+listarreportesinc.get(i).getAsunto());
+           estado.setText(""+listarreportesinc.get(i).getEstado());
            descripcion.setText(""+listarreportesinc.get(i).getDescripcion());
            placa.setVisibility(View.VISIBLE);
            placaotro.setVisibility(View.VISIBLE);
