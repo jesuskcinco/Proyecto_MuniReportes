@@ -10,11 +10,18 @@ public class Utilitario {
     public static final String CAMPO_NOMBRES= "nombres_usuario";
     public static final String CAMPO_APELLIDOS= "apellidos_usuario";
     public static final String CAMPO_DNI= "dni_usuario";
-
+    public static final String CAMPO_IMAGE= "image1";
+    public static final String CAMPO_FLGCOLABORADOR="flgcolaborador";
+    public static final String CAMPO_FLGUSUARIO="flgusuario";
+    public static final String CAMPO_FLGCONDUCTOR="flgconductor";
+    public static final String CAMPO_FLGDUENIO="flgduenio";
+    public static final String CAMPO_FLGBLOQUEADO="flgbloqueado";
+    public static final String CAMPO_IDSOCIEDAD="idsociedad";
 
     public static final String CREAR_TABLA_USUARIO="CREATE TABLE "+TABLE_NAME+
             " ("+CAMPO_USUARIO+" TEXT,"+CAMPO_CLAVE+" TEXT,"+CAMPO_CORREO+" TEXT," +
-            ""+CAMPO_NOMBRES+" TEXT,"+CAMPO_APELLIDOS+" TEXT,"+CAMPO_DNI+" TEXT primary key)";
+            ""+CAMPO_NOMBRES+" TEXT,"+CAMPO_APELLIDOS+" TEXT,"+CAMPO_DNI+" TEXT primary key,"+CAMPO_FLGCOLABORADOR+" TEXT,"
+            +CAMPO_FLGUSUARIO+" TEXT,"+CAMPO_FLGCONDUCTOR+" TEXT,"+CAMPO_FLGDUENIO+" TEXT,"+CAMPO_FLGBLOQUEADO+" TEXT,"+CAMPO_IDSOCIEDAD+" TEXT,"+CAMPO_IMAGE+" blob)";
 
     //Constantes para crear la tabla mototaxi
     public static final String TABLE_MOTOTAXI= "VEHICULO";
@@ -27,7 +34,7 @@ public class Utilitario {
 
     public static final String CREAR_TABLA_VEHICULO="CREATE TABLE "+TABLE_MOTOTAXI+
             " ("+CAMPO_PLACA+" TEXT primary key,"+CAMPO_VEHICULO+" TEXT,"+CAMPO_MODELO+" TEXT," +
-            ""+CAMPOCOLOR+" TEXT,"+CAMPO_DUENIO+" TEXT)";
+            ""+CAMPOCOLOR+" TEXT,"+CAMPO_DUENIO+" TEXT,"+CAMPO_IMAGE+" blob)";
 
     ///Constantes para crear la tabla Tipo Incidente
     public static final String TABLE_TIPO_INCIDENTE= "TIPOINCIDENTE";
@@ -83,10 +90,10 @@ public class Utilitario {
     public static final String CAMPO_COD_COMENTARIO="codcomentario";
     public static final String CAMPO_COMENTARIO="comentario";
     public static final String CAMPO_FECHA_COMENT="fechacomenta";
-
+    public static final String CAMPO_VISIBILIDAD="visibilidad";
     public static final String CREAR_TABLA_COMENTARIO="CREATE TABLE "+TABLE_COMENTARIO+
             " ("+CAMPO_COD_COMENTARIO+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_COMENTARIO+" TEXT,"+
-            CAMPO_DNI+" TEXT,"+CAMPO_FECHA_COMENT+" TEXT)";
+            CAMPO_DNI+" TEXT,"+CAMPO_FECHA_COMENT+" TEXT,"+CAMPO_VISIBILIDAD+" TEXT)";
 
     //constantes para crear la tabla mensajes
     public static final String TABLE_MENSAJES="MENSAJES";

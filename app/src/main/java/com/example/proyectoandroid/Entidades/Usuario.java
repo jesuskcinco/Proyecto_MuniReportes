@@ -14,8 +14,12 @@ public class Usuario {
     public Integer flgduenio;
     public Integer flgbloqueado;
     public Integer idsociedad;
+    public byte[] image1;
 
-    public Usuario(String nom_usuario, String clave, String correo, String nombres, String apellidos, Integer dni, Integer flgcolaborador, Integer flgusuario, Integer flgconductor, Integer flgduenio, Integer flgbloqueado, Integer idsociedad) {
+    public Usuario() {
+    }
+
+    public Usuario(String nom_usuario, String clave, String correo, String nombres, String apellidos, Integer dni, Integer flgcolaborador, Integer flgusuario, Integer flgconductor, Integer flgduenio, Integer flgbloqueado, Integer idsociedad, byte[] image1) {
         this.nom_usuario = nom_usuario;
         this.clave = clave;
         this.correo = correo;
@@ -28,11 +32,9 @@ public class Usuario {
         this.flgduenio = flgduenio;
         this.flgbloqueado = flgbloqueado;
         this.idsociedad = idsociedad;
+        this.image1 = image1;
     }
 
-    public Usuario() {
-
-    }
     public String getNom_usuario() {
         return nom_usuario;
     }
@@ -80,4 +82,61 @@ public class Usuario {
     public void setDni(Integer dni) {
         this.dni = dni;
     }
+
+    public Integer getFlgcolaborador() {
+        return flgcolaborador;
+    }
+
+    public void setFlgcolaborador(Integer flgcolaborador) {
+        this.flgcolaborador = flgcolaborador;
+    }
+
+    public Integer getFlgusuario() {
+        return flgusuario;
+    }
+
+    public void setFlgusuario(Integer flgusuario) {
+        this.flgusuario = flgusuario;
+    }
+
+    public Integer getFlgconductor() {
+        return flgconductor;
+    }
+
+    public void setFlgconductor(Integer flgconductor) {
+        this.flgconductor = flgconductor;
+    }
+
+    public Integer getFlgduenio() {
+        return flgduenio;
+    }
+
+    public void setFlgduenio(Integer flgduenio) {
+        this.flgduenio = flgduenio;
+    }
+
+    public Integer getFlgbloqueado() {
+        return flgbloqueado;
+    }
+
+    public void setFlgbloqueado(Integer flgbloqueado) {
+        this.flgbloqueado = flgbloqueado;
+    }
+
+    public Integer getIdsociedad() {
+        return idsociedad;
+    }
+
+    public void setIdsociedad(Integer idsociedad) {
+        this.idsociedad = idsociedad;
+    }
+
+    public byte[] getImage1() {
+        return image1;
+    }
+
+    public void setImage1(byte[] image1) {
+        this.image1 = image1;
+    }
+
 }

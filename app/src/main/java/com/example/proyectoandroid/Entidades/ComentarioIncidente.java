@@ -5,15 +5,17 @@ public class ComentarioIncidente {
     public String comentario;
     public String usucomenta;
     public String fechacomenta;
+    public String visibilidad;
 
-    public ComentarioIncidente(Integer codcomentario, String comentario, String usucomenta, String fechacomenta) {
+    public ComentarioIncidente() {
+    }
+
+    public ComentarioIncidente(Integer codcomentario, String comentario, String usucomenta, String fechacomenta, String visibilidad) {
         this.codcomentario = codcomentario;
         this.comentario = comentario;
         this.usucomenta = usucomenta;
         this.fechacomenta = fechacomenta;
-    }
-    public ComentarioIncidente(){
-
+        this.visibilidad = visibilidad;
     }
 
     public Integer getCodcomentario() {
@@ -36,15 +38,23 @@ public class ComentarioIncidente {
         return usucomenta;
     }
 
-    public void setUsucomenta(String usuario) {
-        this.usucomenta = usuario;
+    public void setUsucomenta(String usucomenta) {
+        this.usucomenta = usucomenta;
     }
 
-    public String getFecha() {
+    public String getFechacomenta() {
         return fechacomenta;
     }
 
-    public void setFecha(String fecha) {
-        this.fechacomenta = fecha;
+    public void setFechacomenta(String fechacomenta) {
+        this.fechacomenta = fechacomenta;
+    }
+
+    public String getVisibilidad() {
+        return visibilidad;
+    }
+
+    public void setVisibilidad(String visibilidad) {
+        this.visibilidad = visibilidad;
     }
 }

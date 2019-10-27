@@ -83,8 +83,9 @@ public class Consultar_Mototaxis extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent actmoto= new Intent(Consultar_Mototaxis.this,ActualizarMototaxi.class);
+                String placaapasar=listarvehiculos.get(i).getPlaca();
                 actmoto.putExtra("pasar_usuario",usupas);
-                actmoto.putExtra("pasar_placa",listarvehiculos.get(i).getPlaca());
+                actmoto.putExtra("pasar_placa",placaapasar);
                 startActivity(actmoto);
             }
         });

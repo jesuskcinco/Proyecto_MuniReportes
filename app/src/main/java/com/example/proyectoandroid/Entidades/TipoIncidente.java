@@ -15,6 +15,7 @@ public class TipoIncidente {
     public TipoIncidente(){
 
     }
+
     public String getDescripcion() {
         return descripcion;
     }

@@ -7,6 +7,7 @@ public class Vehiculo {
     public String modelo;
     public String color;
     public String dni_duenio;
+    public byte[] image1;
 
     public Vehiculo(String placa, String vehiculo, String modelo, String color, String dni_duenio) {
         this.placa = placa;
@@ -19,6 +20,15 @@ public class Vehiculo {
     public Vehiculo(){
 
     }
+
+    public byte[] getImage1() {
+        return image1;
+    }
+
+    public void setImage1(byte[] image1) {
+        this.image1 = image1;
+    }
+
     public String getPlaca() {
         return placa;
     }

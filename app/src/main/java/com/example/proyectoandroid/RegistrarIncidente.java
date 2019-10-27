@@ -91,6 +91,8 @@ public class RegistrarIncidente extends AppCompatActivity {
         btncanc.setVisibility(View.VISIBLE);
         referencia=findViewById(R.id.edtreferencia);
         txtgps= findViewById(R.id.edtgps);
+        latitud=0.0;
+        longitud=0.0;
         ly= findViewById(R.id.lyobjetos);
         ly.setVisibility(View.INVISIBLE);
         rb1= findViewById(R.id.rdbsi);
@@ -112,6 +114,7 @@ public class RegistrarIncidente extends AppCompatActivity {
                     @Override
                     public void onLocationChanged(Location location) {
                         //txtgps.setText("entro el texto");
+
                         txtgps.setText(""+location.getLatitude()+"-"+location.getLongitude());
                         longitud=location.getLatitude();
                         latitud=location.getLongitude();
@@ -375,7 +378,7 @@ public class RegistrarIncidente extends AppCompatActivity {
         }
 
     }
-
+    //para cuando se hace clic en el boton subir imagen
     public void subirimg(View view) {
         Intent inten=new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         //inten.setAction(Intent.ACTION_GET_CONTENT);
@@ -424,9 +427,16 @@ public class RegistrarIncidente extends AppCompatActivity {
         String placaotro2= placaotro.getText().toString();
         String modelootro2= modelootro.getText().toString();
         String marcaotro2= marcaotro.getText().toString();
-        String lattext= latitud.toString();
-        String longtext= longitud.toString();
-        String direcciongps=referencia.toString();
+        String lattext= Double.toString(latitud);
+        String longtext=Double.toString(longitud);
+        //SE AGREGA PARA CUANDO EL USUARIO NO HACE CLIC EN REGIUSTRAR UBICACION
+        if(lattext.toString()=="0.0" && longtext.toString()=="0.0"){
+            lattext="null";
+            longtext="null";
+        }
+
+        String direcciongps=referencia.getText().toString();
+
         db= con.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -437,7 +447,7 @@ public class RegistrarIncidente extends AppCompatActivity {
         values.put(Utilitario.CAMPO_LATITUD_GPS,lattext);
         values.put(Utilitario.CAMPO_LONGITUD_GPS,longtext);
         values.put(Utilitario.CAMPO_DIRECCION_GPS,direcciongps);
-        if(!descripreporte.isEmpty()){
+        if(!descripreporte.isEmpty() && !direcciongps.isEmpty()){
 
 
         if (rb2.isChecked() == true) {
@@ -504,11 +514,11 @@ public class RegistrarIncidente extends AppCompatActivity {
             Toast.makeText(this,"Se grabo el reporte "+cod_reporte,Toast.LENGTH_SHORT).show();
 
         }else {
-            Toast.makeText(this,"El reporte no existe",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"El reporte no existe ",Toast.LENGTH_SHORT).show();
         }
 
         }else{
-            Toast.makeText(this,"Ingrese la descripción del reporte",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Ingrese la descripcion y referencia del reporte",Toast.LENGTH_SHORT).show();
         }
         db.close();
     }
