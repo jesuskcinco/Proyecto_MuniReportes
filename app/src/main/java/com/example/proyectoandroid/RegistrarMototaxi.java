@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.proyectoandroid.Entidades.Usuario;
+import com.example.proyectoandroid.Utilidades.GlobalVariables;
 import com.example.proyectoandroid.Utilidades.Utilitario;
 
 import java.util.ArrayList;
@@ -29,11 +30,15 @@ public class RegistrarMototaxi extends AppCompatActivity {
     ConexionSQLiteHelper con,con2;
     String validar,usupas;
     SQLiteDatabase db;
+    GlobalVariables globalVariables;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_mototaxi);
         con= new ConexionSQLiteHelper(this,"bd_aplicativo",null,1);
+
+        globalVariables = (GlobalVariables)getApplicationContext();
+
         placa= (EditText) findViewById(R.id.edt_placa);
         vehiculo= (EditText) findViewById(R.id.edt_vehiculo);
         modelo= (EditText) findViewById(R.id.edt_modelo);
@@ -41,10 +46,11 @@ public class RegistrarMototaxi extends AppCompatActivity {
         combousuario= (Spinner) findViewById(R.id.spn_usuario);
         combovehiculo= (Spinner) findViewById(R.id.spn_vehiculo);
         datos2 = getIntent().getExtras();
-        usupas=datos2.getString("pasar_usuario");
-        if (usupas.equals("")){
-            usupas="70546327";
-        }
+        //usupas=datos2.getString("pasar_usuario");
+        //if (usupas.equals("")){
+        //    usupas="70546327";
+        //}
+        usupas=globalVariables.getDni();
         //consultarusuarios();
         llenarspinner2();
         //ArrayAdapter<CharSequence> adaptador= new ArrayAdapter(this,android.R.layout.simple_spinner_item,listausuarios);
