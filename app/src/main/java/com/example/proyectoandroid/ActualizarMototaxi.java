@@ -109,7 +109,7 @@ public class ActualizarMototaxi extends AppCompatActivity {
                 break;
             case R.id.button9:
                 Intent cancelar= new Intent(ActualizarMototaxi.this,Consultar_Mototaxis.class);
-                //cancelar.putExtra("pasar_usuario",usupas);
+                cancelar.putExtra("pasar_usuario",dnipasado);
                 startActivity(cancelar);
                 break;
         }
