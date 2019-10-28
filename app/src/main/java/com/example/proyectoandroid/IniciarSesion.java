@@ -87,9 +87,10 @@ public class IniciarSesion extends AppCompatActivity {
         String dni2= "";
         String clave2="";
         Intent ven2= new Intent(IniciarSesion.this,MainActivity.class);
-
-        ven2.putExtra("pasar_usuario",dni2);
-        ven2.putExtra("pasar_clave",clave2);
+        globalVariables = (GlobalVariables)getApplicationContext();
+        globalVariables.setDni("70546327");
+        //ven2.putExtra("pasar_usuario",dni2);
+        //ven2.putExtra("pasar_clave",clave2);
         startActivity(ven2);
 
     }

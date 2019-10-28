@@ -10,7 +10,7 @@
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reportes Actuales"
+        android:text="Motos Registradas"
         android:textSize="30dp"
         android:layout_marginBottom="20dp"/>
     <LinearLayout
@@ -19,7 +19,7 @@
         android:orientation="vertical">
 
         <Spinner
-            android:id="@+id/spntipos"
+            android:id="@+id/spntiposmotos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/idrecycler"
+                android:id="@+id/idrecyclermotos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>

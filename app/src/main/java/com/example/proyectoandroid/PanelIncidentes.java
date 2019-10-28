@@ -116,7 +116,7 @@ public class PanelIncidentes extends AppCompatActivity {
 
     }
 
-    //se crea la funcion para los filtros del combo
+    //se crea la funcion para el redireccionamiento al detalle
     private void reportexfiltro() {
         switch (idcombo){
 

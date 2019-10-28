@@ -8,25 +8,19 @@ public class Vehiculo {
     public String color;
     public String dni_duenio;
     public byte[] image1;
+    public Integer cantidadreportes;
 
-    public Vehiculo(String placa, String vehiculo, String modelo, String color, String dni_duenio) {
+    public Vehiculo() {
+    }
+
+    public Vehiculo(String placa, String vehiculo, String modelo, String color, String dni_duenio, byte[] image1, Integer cantidadreportes) {
         this.placa = placa;
         this.vehiculo = vehiculo;
         this.modelo = modelo;
         this.color = color;
         this.dni_duenio = dni_duenio;
-    }
-
-    public Vehiculo(){
-
-    }
-
-    public byte[] getImage1() {
-        return image1;
-    }
-
-    public void setImage1(byte[] image1) {
         this.image1 = image1;
+        this.cantidadreportes = cantidadreportes;
     }
 
     public String getPlaca() {
@@ -67,5 +61,21 @@ public class Vehiculo {
 
     public void setDni_duenio(String dni_duenio) {
         this.dni_duenio = dni_duenio;
+    }
+
+    public byte[] getImage1() {
+        return image1;
+    }
+
+    public void setImage1(byte[] image1) {
+        this.image1 = image1;
+    }
+
+    public Integer getCantidadreportes() {
+        return cantidadreportes;
+    }
+
+    public void setCantidadreportes(Integer cantidadreportes) {
+        this.cantidadreportes = cantidadreportes;
     }
 }

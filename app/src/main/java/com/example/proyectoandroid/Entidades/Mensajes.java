@@ -6,24 +6,18 @@ public class Mensajes {
     public String fecha;
     public Integer flgeliminar;
     public Integer dni_mensaje;
+    public String placa;
 
     public Mensajes() {
     }
 
-    public Mensajes(Integer cod_mensaje, String mensaje_not, String fecha, Integer flgeliminar, Integer dni_mensaje) {
+    public Mensajes(Integer cod_mensaje, String mensaje_not, String fecha, Integer flgeliminar, Integer dni_mensaje, String placa) {
         this.cod_mensaje = cod_mensaje;
         this.mensaje_not = mensaje_not;
         this.fecha = fecha;
         this.flgeliminar = flgeliminar;
         this.dni_mensaje = dni_mensaje;
-    }
-
-    public Integer getDni_mensaje() {
-        return dni_mensaje;
-    }
-
-    public void setDni_mensaje(Integer dni_mensaje) {
-        this.dni_mensaje = dni_mensaje;
+        this.placa = placa;
     }
 
     public Integer getCod_mensaje() {
@@ -56,5 +50,21 @@ public class Mensajes {
 
     public void setFlgeliminar(Integer flgeliminar) {
         this.flgeliminar = flgeliminar;
+    }
+
+    public Integer getDni_mensaje() {
+        return dni_mensaje;
+    }
+
+    public void setDni_mensaje(Integer dni_mensaje) {
+        this.dni_mensaje = dni_mensaje;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 }

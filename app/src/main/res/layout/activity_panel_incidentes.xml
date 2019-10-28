@@ -13,7 +13,7 @@
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mototaxis Registradas"
+        android:text="Reportes Actuales"
         android:textSize="30dp"
         android:layout_marginBottom="20dp"/>
     <LinearLayout
@@ -22,7 +22,7 @@
         android:orientation="vertical">
 
         <Spinner
-            android:id="@+id/spnmodelos"
+            android:id="@+id/spntipos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -44,10 +44,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/idrecyclermotos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/idrecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 

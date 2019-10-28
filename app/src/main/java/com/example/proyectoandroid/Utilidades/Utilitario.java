@@ -103,7 +103,7 @@ public class Utilitario {
 
     public static final String CREAR_TABLA_MENSAJE="CREATE TABLE "+TABLE_MENSAJES+
             " ("+CAMPO_ID_MENSAJE+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_MENSAJE+" TEXT,"+CAMPO_FECHA+" TEXT," +CAMPO_DNI+" INTEGER,"+
-            CAMPO_ELIMINAR+" INTEGER)";
+            CAMPO_PLACA+" TEXT,"+CAMPO_ELIMINAR+" INTEGER)";
 
     //constantes para crear la tabla sociedad
     public static final String TABLE_SOCIEDAD="SOCIEDAD";

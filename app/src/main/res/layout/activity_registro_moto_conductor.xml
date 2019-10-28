@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroMotoConductor"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edtconductor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="DNI" />
+    <Spinner
+        android:id="@+id/spnmotos"
+        android:layout_width="match_parent"
+        android:layout_height="43dp" />
+
+    <EditText
+        android:id="@+id/edtobservacion"
+        android:layout_width="match_parent"
+        android:layout_height="98dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Observación"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/btngrabarregistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Grabar"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/btncancela"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Cancelar" />
+
+</LinearLayout>

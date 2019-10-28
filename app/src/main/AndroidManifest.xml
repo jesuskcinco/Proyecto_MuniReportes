@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListaRecyclerMotos"></activity>
+        <activity android:name=".RegistroMotoConductor"></activity>
+        <activity android:name=".ListaRecyclerMotos" />
         <activity android:name=".ConsultarTodoMototaxis" />
         <activity
             android:name=".Main2Activity"
@@ -55,8 +56,8 @@
     </application>
 
     <uses-feature android:name="android.hardware.location.gps" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>

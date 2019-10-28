@@ -18,20 +18,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        datos = getIntent().getExtras();
-        dniobt= datos.getString("pasar_usuario");
+        //datos = getIntent().getExtras();
+        getdni= (TextView) findViewById(R.id.dnipasado);
+
+        //dniobt= datos.getString("pasar_usuario");
         //String claveobt= datos.getString("pasar_clave");
-        if (dniobt.isEmpty()){
-            dniobt="70546327";
-        }
         globalVariables = (GlobalVariables)getApplicationContext();
-        globalVariables.setDni(dniobt);
-            getdni= (TextView) findViewById(R.id.dnipasado);
+        if (!globalVariables.getDni().isEmpty()){
+            dniobt=globalVariables.getDni();
+
+        }else {
+            dniobt="70546327";
+            globalVariables.setDni(dniobt);
+        }
+
+
+
+
             //getclave= (TextView) findViewById(R.id.clavepasada);
-            getdni.setText(dniobt);
+        getdni.setText(dniobt);
             //getclave.setText(claveobt);
             ConexionSQLiteHelper conn= new ConexionSQLiteHelper (this,"bd_aplicativo",null, 1);
-
 
     }
     public void onClick (View view){
@@ -73,6 +80,16 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btnsalirfinal:
                 miIntent= new Intent(MainActivity.this, IniciarSesion.class);
+
+                //miIntent.putExtra("pasar_usuario",dniobt);
+                break;
+            case R.id.btnmotos:
+                miIntent= new Intent(MainActivity.this, ConsultarTodoMototaxis.class);
+
+                //miIntent.putExtra("pasar_usuario",dniobt);
+                break;
+            case R.id.btnregistroconducmoto:
+                miIntent= new Intent(MainActivity.this, RegistroMotoConductor.class);
 
                 //miIntent.putExtra("pasar_usuario",dniobt);
                 break;
