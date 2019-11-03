@@ -1,5 +1,6 @@
 package com.example.proyectoandroid;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -77,6 +78,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         fragmentManager.beginTransaction().replace(R.id.content_main2,new Frag2()).commit();
         //se agrega
 
+
     }
 
     @Override
@@ -96,7 +98,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int id=item.getItemId();
-        if(id==R.id.action_settings){
+        if(id==R.id.nav_home){
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -116,20 +119,20 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             Toast.makeText(this,"Mensaje de prueba  12",Toast.LENGTH_SHORT).show();
             //fragmentManager.beginTransaction().replace(R.id.nav_host_fragment,mifrag).commit();
             fragmentseleccionado=true;
-        }else if(id==R.id.nav_gallery){
-            mifrag=new Frag2();
-            Toast.makeText(this,"Mensaje de prueba",Toast.LENGTH_SHORT).show();
-            fragmentManager.beginTransaction().replace(R.id.content_main2,mifrag).commit();
-            fragmentseleccionado=true;
-        }else if(id==R.id.nav_slideshow){
+        }//else if(id==R.id.nav_gallery){
+           // mifrag=new Frag2();
+          //  Toast.makeText(this,"Mensaje de prueba",Toast.LENGTH_SHORT).show();
+          //  fragmentManager.beginTransaction().replace(R.id.content_main2,mifrag).commit();
+          //  fragmentseleccionado=true;
+       // }else if(id==R.id.nav_slideshow){
 
-        }else if(id==R.id.nav_tools){
-            Toast.makeText(this,"Mensaje de prueba  12",Toast.LENGTH_SHORT).show();
-        }else if(id==R.id.nav_send){
-            Toast.makeText(this,"Mensaje de prueba",Toast.LENGTH_SHORT).show();
-        }
+       // }else if(id==R.id.nav_tools){
+        //    Toast.makeText(this,"Mensaje de prueba  12",Toast.LENGTH_SHORT).show();
+        //}else if(id==R.id.nav_send){
+        //    Toast.makeText(this,"Mensaje de prueba",Toast.LENGTH_SHORT).show();
+       // }
         //fragmentManager.beginTransaction().replace(R.id.content_main2,mifrag).commit();
-        Toast.makeText(this,"entre los ifs de prueba  12",Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this,"entre los ifs de prueba  12",Toast.LENGTH_SHORT).show();
         if(fragmentseleccionado==true){
 
             fragmentManager.beginTransaction().replace(R.id.content_main2,mifrag).commit();
@@ -137,6 +140,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         }
         DrawerLayout drawer=(DrawerLayout)findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
 

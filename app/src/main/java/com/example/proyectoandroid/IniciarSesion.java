@@ -57,7 +57,7 @@ public class IniciarSesion extends AppCompatActivity {
                 String clavebd=cr.getString(1);
 
                 if (dni.equals(dnibd) && clave.equals(clavebd)){
-                    Intent ven= new Intent(this,MainActivity.class);
+                    Intent ven= new Intent(this,Main2Activity.class);
                     globalVariables = (GlobalVariables)getApplicationContext();
                     globalVariables.setDni(dnibd);
                     ven.putExtra("pasar_usuario",dnibd);

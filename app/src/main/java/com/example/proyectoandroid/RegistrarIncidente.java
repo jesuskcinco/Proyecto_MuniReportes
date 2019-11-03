@@ -233,7 +233,7 @@ public class RegistrarIncidente extends AppCompatActivity {
                 grabarcabecera();
                 break;
             case R.id.button17:
-                miIntent= new Intent(RegistrarIncidente.this, IniciarSesion.class);
+                miIntent= new Intent(RegistrarIncidente.this, MainActivity.class);
                 miIntent.putExtra("pasar_usuario",dnipasado);
                 break;
         }
@@ -430,7 +430,7 @@ public class RegistrarIncidente extends AppCompatActivity {
         String lattext= Double.toString(latitud);
         String longtext=Double.toString(longitud);
         //SE AGREGA PARA CUANDO EL USUARIO NO HACE CLIC EN REGIUSTRAR UBICACION
-        if(lattext.toString()=="0.0" && longtext.toString()=="0.0"){
+        if(lattext.equals("0.0") && longtext.equals("0.0")){
             lattext="null";
             longtext="null";
         }

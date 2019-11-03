@@ -109,7 +109,7 @@ public class RegistrarTipoIncidente extends AppCompatActivity {
                 registrartipoincidente();
                 break;
             case R.id.button10:
-                miIntent= new Intent(RegistrarTipoIncidente.this, IniciarSesion.class);
+                miIntent= new Intent(RegistrarTipoIncidente.this, MainActivity.class);
                 break;
         }
         if (miIntent!=null) startActivity(miIntent);

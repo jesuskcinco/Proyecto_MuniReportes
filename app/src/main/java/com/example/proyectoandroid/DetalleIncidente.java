@@ -30,7 +30,7 @@ import java.util.Date;
 
 public class DetalleIncidente extends AppCompatActivity {
     Bundle datos;
-    String cor_reportedet,latit,longit;
+    String cor_reportedet,latit="0.0",longit="0.0",placa2;
     TextView codrep;
     TextView asunto,descripcion,ubicacion,placa,placaotro,modelootro,marcaotro,estado,tipo,nivel,comenta;
     ImageView img1,img2,img3;
@@ -141,28 +141,33 @@ public class DetalleIncidente extends AppCompatActivity {
            asunto.setText("Asunto: "+listarreportesinc.get(i).getAsunto());
            estado.setText("Estado: "+listarreportesinc.get(i).getEstado());
            descripcion.setText("Descripcion: "+listarreportesinc.get(i).getDescripcion());
-           if(listarreportesinc.get(i).getPlacamoto().equals("null")){
+           placa.setText("Placa: "+listarreportesinc.get(i).getPlacamoto());
+           placaotro.setText("Placa del vehiculo: "+listarreportesinc.get(i).getPlacaotro());
+           modelootro.setText("Modelo del vehiculo: "+listarreportesinc.get(i).getModelootro());
+           marcaotro.setText("Marca del vehiculo: "+listarreportesinc.get(i).getMarcarotro());
+
+           if(placa.getText().equals("Placa: null")){
                placa.setVisibility(View.GONE);
            }else{
-               placa.setText("Placa: "+listarreportesinc.get(i).getPlacamoto());
+               placa.setVisibility(View.VISIBLE);
            }
-           if (listarreportesinc.get(i).getPlacaotro().equals("null")){
+           if(placaotro.getText().equals("Placa del vehiculo: null")){
                placaotro.setVisibility(View.GONE);
                modelootro.setVisibility(View.GONE);
                marcaotro.setVisibility(View.GONE);
-
            }else{
-               placaotro.setText("Placa del vehiculo: "+listarreportesinc.get(i).getPlacaotro());
-               modelootro.setText("Modelo del vehiculo: "+listarreportesinc.get(i).getModelootro());
-               marcaotro.setText("Marca del vehiculo: "+listarreportesinc.get(i).getMarcarotro());
+               placaotro.setVisibility(View.VISIBLE);
+               modelootro.setVisibility(View.VISIBLE);
+               marcaotro.setVisibility(View.VISIBLE);
            }
-
-
 
           latit=listarreportesinc.get(i).getLatitud();
           longit=listarreportesinc.get(i).getLongitud();
           ubicacion.setText("Referencia: "+listarreportesinc.get(i).getDireccion());
-          if(latit.equals("0.0")){
+
+
+
+          if(latit.equals("null")){
               btn.setVisibility(View.GONE);
           }else {
               btn.setVisibility(View.VISIBLE);

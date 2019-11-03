@@ -95,7 +95,7 @@ public class RegistrarUsuario extends AppCompatActivity {
                             values.put(Utilitario.CAMPO_NOMBRES,ls_nombre.getText().toString());
                             values.put(Utilitario.CAMPO_APELLIDOS,ls_apellido.getText().toString());
                             values.put(Utilitario.CAMPO_DNI,ls_dni.getText().toString());
-
+                            values.put(Utilitario.CAMPO_FLGUSUARIO,"1");
                             Long idResultante= db.insert(Utilitario.TABLE_NAME,Utilitario.CAMPO_DNI,values);
                             //db.close();
                             Toast.makeText(getApplicationContext(),"Registro exitoso"+idResultante,Toast.LENGTH_LONG).show();
