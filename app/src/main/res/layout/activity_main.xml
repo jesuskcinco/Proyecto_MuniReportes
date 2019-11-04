@@ -114,6 +114,12 @@
                 android:layout_height="wrap_content"
                 android:text="Asignarme una Moto"
                 android:onClick="onClick"/>
+            <Button
+                android:id="@+id/btnregsociedad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Registrar Sociedad"
+                android:onClick="onClick"/>
 
         </LinearLayout>
     </ScrollView>

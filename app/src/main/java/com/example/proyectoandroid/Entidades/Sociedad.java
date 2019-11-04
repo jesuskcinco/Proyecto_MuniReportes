@@ -7,19 +7,23 @@ public class Sociedad {
     public String nombresociedad;
     public String fecha;
     public String distrito;
+    public String zona;
     public String estado_sociedad;
+    public Integer usuregistra;
 
-    public Sociedad(Integer idsociedad, String duenio, Integer cantidadintegrantes, String nombresociedad, String fecha, String distrito, String estado_sociedad) {
+    public Sociedad() {
+    }
+
+    public Sociedad(Integer idsociedad, String duenio, Integer cantidadintegrantes, String nombresociedad, String fecha, String distrito, String zona, String estado_sociedad, Integer usuregistra) {
         this.idsociedad = idsociedad;
         this.duenio = duenio;
         this.cantidadintegrantes = cantidadintegrantes;
         this.nombresociedad = nombresociedad;
         this.fecha = fecha;
         this.distrito = distrito;
+        this.zona = zona;
         this.estado_sociedad = estado_sociedad;
-    }
-
-    public Sociedad() {
+        this.usuregistra = usuregistra;
     }
 
     public Integer getIdsociedad() {
@@ -76,5 +80,21 @@ public class Sociedad {
 
     public void setEstado_sociedad(String estado_sociedad) {
         this.estado_sociedad = estado_sociedad;
+    }
+
+    public Integer getUsuregistra() {
+        return usuregistra;
+    }
+
+    public void setUsuregistra(Integer usuregistra) {
+        this.usuregistra = usuregistra;
+    }
+
+    public String getZona() {
+        return zona;
+    }
+
+    public void setZona(String zona) {
+        this.zona = zona;
     }
 }

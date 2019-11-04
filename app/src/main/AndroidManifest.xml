@@ -9,9 +9,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-    >
-        <activity android:name=".RegistroMotoConductor"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".MotoSociedad"></activity>
+        <activity android:name=".RegistrarAsociacion" />
+        <activity android:name=".RegistroMotoConductor" />
         <activity android:name=".ListaRecyclerMotos" />
         <activity android:name=".ConsultarTodoMototaxis" />
         <activity
@@ -52,7 +53,6 @@
         <activity android:name=".MainActivity" />
 
         <meta-data
-
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
     </application>

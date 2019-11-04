@@ -15,11 +15,12 @@ public class Usuario {
     public Integer flgbloqueado;
     public Integer idsociedad;
     public byte[] image1;
+    public Integer celular;
 
     public Usuario() {
     }
 
-    public Usuario(String nom_usuario, String clave, String correo, String nombres, String apellidos, Integer dni, Integer flgcolaborador, Integer flgusuario, Integer flgconductor, Integer flgduenio, Integer flgbloqueado, Integer idsociedad, byte[] image1) {
+    public Usuario(String nom_usuario, String clave, String correo, String nombres, String apellidos, Integer dni, Integer flgcolaborador, Integer flgusuario, Integer flgconductor, Integer flgduenio, Integer flgbloqueado, Integer idsociedad, byte[] image1, Integer celular) {
         this.nom_usuario = nom_usuario;
         this.clave = clave;
         this.correo = correo;
@@ -33,6 +34,7 @@ public class Usuario {
         this.flgbloqueado = flgbloqueado;
         this.idsociedad = idsociedad;
         this.image1 = image1;
+        this.celular = celular;
     }
 
     public String getNom_usuario() {
@@ -139,4 +141,11 @@ public class Usuario {
         this.image1 = image1;
     }
 
+    public Integer getCelular() {
+        return celular;
+    }
+
+    public void setCelular(Integer celular) {
+        this.celular = celular;
+    }
 }

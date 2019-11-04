@@ -17,11 +17,11 @@ public class Utilitario {
     public static final String CAMPO_FLGDUENIO="flgduenio";
     public static final String CAMPO_FLGBLOQUEADO="flgbloqueado";
     public static final String CAMPO_IDSOCIEDAD="idsociedad";
-
+    public static final String CAMPO_CELULAR="celular";
     public static final String CREAR_TABLA_USUARIO="CREATE TABLE "+TABLE_NAME+
             " ("+CAMPO_USUARIO+" TEXT,"+CAMPO_CLAVE+" TEXT,"+CAMPO_CORREO+" TEXT," +
             ""+CAMPO_NOMBRES+" TEXT,"+CAMPO_APELLIDOS+" TEXT,"+CAMPO_DNI+" TEXT primary key,"+CAMPO_FLGCOLABORADOR+" TEXT,"
-            +CAMPO_FLGUSUARIO+" TEXT,"+CAMPO_FLGCONDUCTOR+" TEXT,"+CAMPO_FLGDUENIO+" TEXT,"+CAMPO_FLGBLOQUEADO+" TEXT,"+CAMPO_IDSOCIEDAD+" TEXT,"+CAMPO_IMAGE+" blob)";
+            +CAMPO_FLGUSUARIO+" TEXT,"+CAMPO_FLGCONDUCTOR+" TEXT,"+CAMPO_FLGDUENIO+" TEXT,"+CAMPO_FLGBLOQUEADO+" TEXT,"+CAMPO_IDSOCIEDAD+" TEXT,"+CAMPO_IMAGE+" blob,"+CAMPO_CELULAR+" TEXT)";
 
     //Constantes para crear la tabla mototaxi
     public static final String TABLE_MOTOTAXI= "VEHICULO";
@@ -30,11 +30,11 @@ public class Utilitario {
     public static final String CAMPO_MODELO= "modelo_vehiculo";
     public static final String CAMPOCOLOR= "colorvehiculo";
     public static final String CAMPO_DUENIO= "dni_usuario";
-
+    public static final String CAMPO_ID_SOC="idsociedad";
 
     public static final String CREAR_TABLA_VEHICULO="CREATE TABLE "+TABLE_MOTOTAXI+
             " ("+CAMPO_PLACA+" TEXT primary key,"+CAMPO_VEHICULO+" TEXT,"+CAMPO_MODELO+" TEXT," +
-            ""+CAMPOCOLOR+" TEXT,"+CAMPO_DUENIO+" TEXT,"+CAMPO_IMAGE+" blob)";
+            ""+CAMPOCOLOR+" TEXT,"+CAMPO_DUENIO+" TEXT,"+CAMPO_IMAGE+" blob,"+CAMPO_ID_SOC+" INTEGER)";
 
     ///Constantes para crear la tabla Tipo Incidente
     public static final String TABLE_TIPO_INCIDENTE= "TIPOINCIDENTE";
@@ -113,11 +113,13 @@ public class Utilitario {
     public static final String CAMPO_NOM_SOCIEDAD="nombresociedad";
     public static final String CAMPO_FECHA_REG_SOC="fecha";
     public static final String CAMPO_DISTRITO="distrito";
+    public static final String CAMPO_ZONA="zona";
     public static final String CAMPO_ESTADO_SOCIEDAD="estado_sociedad";
 
     public static final String CREAR_TABLA_SOCIEDAD="CREATE TABLE "+TABLE_SOCIEDAD+
             " ("+CAMPO_SOCIEDAD+" INTEGER PRIMARY KEY AUTOINCREMENT,"+CAMPO_NOM_DUENIO+" TEXT,"+CAMPO_INTEGRANTES+" INTEGER," +
-            CAMPO_NOM_SOCIEDAD+" TEXT,"+CAMPO_FECHA_REG_SOC+" TEXT,"+CAMPO_DISTRITO+" TEXT,"+CAMPO_ESTADO_SOCIEDAD+" TEXT)";
+            CAMPO_NOM_SOCIEDAD+" TEXT,"+CAMPO_FECHA_REG_SOC+" TEXT,"+CAMPO_DISTRITO+" TEXT,"+CAMPO_ZONA+" TEXT,"
+            +CAMPO_ESTADO_SOCIEDAD+" TEXT,"+CAMPO_DNI+" INTEGER)";
 
     //CONSTANTES PARA CREAR LA TABLA USUARIO SOCIEDAD
     public static final String TABLE_USU_SOCIEDAD="USUARIOSOCIEDAD";
