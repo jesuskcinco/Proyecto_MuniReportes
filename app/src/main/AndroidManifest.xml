@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".lista_recycler_bandeja"></activity>
+        <activity android:name=".ListaRecyclerBandeja"></activity>
         <activity android:name=".MotoSociedad" />
         <activity android:name=".RegistrarAsociacion" />
         <activity android:name=".RegistroMotoConductor" />
@@ -59,8 +59,8 @@
     </application>
 
     <uses-feature android:name="android.hardware.location.gps" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>
