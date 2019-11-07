@@ -98,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
 
                 //miIntent.putExtra("pasar_usuario",dniobt);
                 break;
+            case R.id.btnbandeja:
+                miIntent= new Intent(MainActivity.this, BandejaMensajes.class);
+
+                //miIntent.putExtra("pasar_usuario",dniobt);
+                break;
         }
         if (miIntent!=null) startActivity(miIntent);
     }

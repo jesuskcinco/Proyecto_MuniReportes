@@ -53,7 +53,7 @@ public class ConsultarTodoMototaxis extends AppCompatActivity {
         consultarlistamotos();
         AdaptadorMotos adaptadorprinc=new AdaptadorMotos(listaclasemotos);
         mRecyclerview2.setAdapter(adaptadorprinc);
-
+//metodo para que al seleccionar un objeto del combo 
         spntipos2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
