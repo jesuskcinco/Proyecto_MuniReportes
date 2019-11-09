@@ -103,6 +103,11 @@ public class MainActivity extends AppCompatActivity {
 
                 //miIntent.putExtra("pasar_usuario",dniobt);
                 break;
+            case R.id.btneditarperfil:
+                miIntent= new Intent(MainActivity.this, ActualizarUsuario.class);
+
+                //miIntent.putExtra("pasar_usuario",dniobt);
+                break;
         }
         if (miIntent!=null) startActivity(miIntent);
     }

@@ -13,7 +13,7 @@ import com.example.proyectoandroid.Utilidades.Utilitario;
 
 public class ActualizarUsuario extends AppCompatActivity {
 
-    EditText ls_dni,ls_nombre,ls_apellido,ls_clave,ls_usuario,ls_correo;
+    EditText ls_dni,ls_nombre,ls_apellido,ls_clave,ls_usuario,ls_correo,ls_celu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,7 @@ public class ActualizarUsuario extends AppCompatActivity {
         ls_nombre= (EditText) findViewById(R.id.txt_nombres3);
         ls_apellido= (EditText) findViewById(R.id.txt_apellidos3);
         ls_dni= (EditText) findViewById(R.id.txt_dni3);
+        ls_celu= (EditText) findViewById(R.id.txt_cel);
     }
 
     public void onClick5 (View view){
@@ -40,6 +41,8 @@ public class ActualizarUsuario extends AppCompatActivity {
         String var_nombre3=ls_nombre.getText().toString();
         String var_apellido3=ls_apellido.getText().toString();
         String var_dni3=ls_dni.getText().toString();
+        String var_celu3=ls_celu.getText().toString();
+
     if (!var_dni3.isEmpty() && !var_nombre3.isEmpty() && !var_apellido3.isEmpty() && !var_usuario3.isEmpty() &&
         !var_clave3.isEmpty()&& !var_correo3.isEmpty()){
             ContentValues valores= new ContentValues();
@@ -49,6 +52,8 @@ public class ActualizarUsuario extends AppCompatActivity {
             valores.put(Utilitario.CAMPO_USUARIO,var_usuario3);
             valores.put(Utilitario.CAMPO_CLAVE,var_clave3);
             valores.put(Utilitario.CAMPO_CORREO,var_correo3);
+            valores.put(Utilitario.CAMPO_CELULAR,var_celu3);
+
             int resultado= db.update("USUARIO",valores,"dni_usuario="+var_dni3,null);
             if (resultado==1){
                 Toast.makeText(this,"La cuenta se actualizo correctamente",Toast.LENGTH_SHORT).show();

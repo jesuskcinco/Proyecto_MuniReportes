@@ -66,6 +66,14 @@
         android:ems="10"
         android:hint="Correo Electrónico"
         android:inputType="textEmailAddress" />
+    <EditText
+        android:id="@+id/txt_celular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Celular"
+        android:inputType="phone"
+        android:maxLength="9"/>
     <Button
         android:id="@+id/btn_grabar"
         android:layout_width="match_parent"
@@ -79,4 +87,6 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="Cancelar" />
+
+
 </LinearLayout>

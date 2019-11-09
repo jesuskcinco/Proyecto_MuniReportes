@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 public class RegistrarUsuario extends AppCompatActivity {
     GlobalVariables globalVariables;
-    EditText ls_dni,ls_nombre,ls_apellido,ls_clave,ls_usuario,ls_correo;
+    EditText ls_dni,ls_nombre,ls_apellido,ls_clave,ls_usuario,ls_correo,ls_celu;
     String validar;
     SQLiteDatabase db;
     String dni;
@@ -38,6 +38,7 @@ public class RegistrarUsuario extends AppCompatActivity {
         ls_nombre= (EditText) findViewById(R.id.txt_nombres);
         ls_apellido= (EditText) findViewById(R.id.txt_apellidos);
         ls_dni= (EditText) findViewById(R.id.txt_dni);
+        ls_celu=(EditText) findViewById(R.id.txt_celular);
         globalVariables = (GlobalVariables)getApplicationContext();
 
     }
@@ -67,11 +68,11 @@ public class RegistrarUsuario extends AppCompatActivity {
         String var_nombre=ls_nombre.getText().toString();
         String var_apellido=ls_apellido.getText().toString();
         String var_dni=ls_dni.getText().toString();
-
+        String var_celu=ls_celu.getText().toString();
 
 
         if(!var_usuario.isEmpty()&& !var_clave.isEmpty() && !var_correo.isEmpty() && !var_nombre.isEmpty() && !var_apellido.isEmpty()
-                && !var_dni.isEmpty()){
+                && !var_dni.isEmpty()&& !var_celu.isEmpty()){
 
             if(var_usuario.equals(var_clave)){
 
@@ -95,6 +96,7 @@ public class RegistrarUsuario extends AppCompatActivity {
                             values.put(Utilitario.CAMPO_NOMBRES,ls_nombre.getText().toString());
                             values.put(Utilitario.CAMPO_APELLIDOS,ls_apellido.getText().toString());
                             values.put(Utilitario.CAMPO_DNI,ls_dni.getText().toString());
+                            values.put(Utilitario.CAMPO_CELULAR,ls_celu.getText().toString());
                             values.put(Utilitario.CAMPO_FLGUSUARIO,"1");
                             Long idResultante= db.insert(Utilitario.TABLE_NAME,Utilitario.CAMPO_DNI,values);
                             //db.close();
@@ -110,6 +112,7 @@ public class RegistrarUsuario extends AppCompatActivity {
                             ls_nombre.setText("");
                             ls_apellido.setText("");
                             ls_dni.setText("");
+                            ls_celu.setText("");
                         }
                     }
 

@@ -126,6 +126,12 @@
                 android:layout_height="wrap_content"
                 android:text="Bandeja de Mensajes"
                 android:onClick="onClick"/>
+            <Button
+                android:id="@+id/btneditarperfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Editar Perfil"
+                android:onClick="onClick"/>
 
         </LinearLayout>
     </ScrollView>

@@ -63,7 +63,14 @@
         android:hint="Contraseña"
         android:inputType="textPassword"
         />
-
+    <EditText
+        android:id="@+id/txt_cel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Celular"
+        android:inputType="phone"
+        android:maxLength="9"/>
     <EditText
         android:id="@+id/txt_correo3"
         android:layout_width="match_parent"

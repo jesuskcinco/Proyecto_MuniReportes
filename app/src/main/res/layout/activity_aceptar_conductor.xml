@@ -62,14 +62,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Aceptar" />
+            android:text="Aceptar"
+            android:onClick="OnClick"/>
 
         <Button
             android:id="@+id/button22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Denegar" />
+            android:text="Denegar"
+            android:onClick="OnClick"/>
 
 
     </LinearLayout>
@@ -78,6 +80,7 @@
         android:id="@+id/button25"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Regresar" />
+        android:text="Regresar"
+        android:onClick="OnClick"/>
 
 </LinearLayout>
