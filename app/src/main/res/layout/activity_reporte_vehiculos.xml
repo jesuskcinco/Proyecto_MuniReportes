@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spnmeses"
         android:layout_width="match_parent"
         android:layout_height="38dp" />
 

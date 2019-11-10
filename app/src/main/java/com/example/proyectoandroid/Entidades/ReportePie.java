@@ -4,19 +4,28 @@ public class ReportePie {
 
 
     public String descripciontipo;
-    public String cantidad;
+    public Integer cantidad;
     public String nommes;
     public String codigotipo;
-
+    public String nummes;
 
     public ReportePie() {
     }
 
-    public ReportePie(String descripciontipo, String cantidad, String nommes, String codigotipo) {
+    public ReportePie(String descripciontipo, Integer cantidad, String nommes, String codigotipo, String nummes) {
         this.descripciontipo = descripciontipo;
         this.cantidad = cantidad;
         this.nommes = nommes;
         this.codigotipo = codigotipo;
+        this.nummes = nummes;
+    }
+
+    public String getNummes() {
+        return nummes;
+    }
+
+    public void setNummes(String nummes) {
+        this.nummes = nummes;
     }
 
     public String getDescripciontipo() {
@@ -27,11 +36,11 @@ public class ReportePie {
         this.descripciontipo = descripciontipo;
     }
 
-    public String getCantidad() {
+    public Integer getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(String cantidad) {
+    public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
 
