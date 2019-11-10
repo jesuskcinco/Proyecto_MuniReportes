@@ -38,7 +38,7 @@ public class AdaptadorMensajes extends RecyclerView.Adapter <AdaptadorMensajes.V
 
 
 
-        holder.tv_asunto.setText("Solicitud de conductor para su vehiculo con placa: "+listarmensajes.get(position).getPlaca());
+        holder.tv_asunto.setText("Solicitud de la placa: "+listarmensajes.get(position).getPlaca());
         holder.tv_mensaje.setText("Mensaje: "+listarmensajes.get(position).getMensaje_not());
        // holder.tv_modelo.setText("Descripción: "+listarvehiculos.get(position).getModelo());
         //holder.tv_color.setText(("Color: "+listarvehiculos.get(position).getColor()));

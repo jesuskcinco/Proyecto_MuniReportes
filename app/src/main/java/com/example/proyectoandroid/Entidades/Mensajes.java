@@ -7,17 +7,19 @@ public class Mensajes {
     public Integer flgeliminar;
     public Integer dni_mensaje;
     public String placa;
+public String tipomensaje;
 
     public Mensajes() {
     }
 
-    public Mensajes(Integer cod_mensaje, String mensaje_not, String fecha, Integer flgeliminar, Integer dni_mensaje, String placa) {
+    public Mensajes(Integer cod_mensaje, String mensaje_not, String fecha, Integer flgeliminar, Integer dni_mensaje, String placa, String tipomensaje) {
         this.cod_mensaje = cod_mensaje;
         this.mensaje_not = mensaje_not;
         this.fecha = fecha;
         this.flgeliminar = flgeliminar;
         this.dni_mensaje = dni_mensaje;
         this.placa = placa;
+        this.tipomensaje = tipomensaje;
     }
 
     public Integer getCod_mensaje() {
@@ -66,5 +68,13 @@ public class Mensajes {
 
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    public String getTipomensaje() {
+        return tipomensaje;
+    }
+
+    public void setTipomensaje(String tipomensaje) {
+        this.tipomensaje = tipomensaje;
     }
 }

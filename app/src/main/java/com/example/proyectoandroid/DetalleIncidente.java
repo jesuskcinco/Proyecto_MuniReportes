@@ -204,24 +204,29 @@ public class DetalleIncidente extends AppCompatActivity {
         String come= comenta.getText().toString();
         String documento= dniobt;
         ContentValues values = new ContentValues();
+if(!come.equals("")){
 
-        values.put(Utilitario.CAMPO_COMENTARIO, come);
-        values.put(Utilitario.CAMPO_DNI, documento);
-        Date fechaActual = new Date();
-        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-        values.put(Utilitario.CAMPO_FECHA_COMENT, formatoFecha.format(fechaActual));
-        values.put(Utilitario.CAMPO_VISIBILIDAD, "1");
-        values.put(Utilitario.CAMPO_ID_REPORTE, cor_reportedet);
-        Long idResultante= db.insert(Utilitario.TABLE_COMENTARIO,Utilitario.CAMPO_COD_COMENTARIO,values);
+    values.put(Utilitario.CAMPO_COMENTARIO, come);
+    values.put(Utilitario.CAMPO_DNI, documento);
+    Date fechaActual = new Date();
+    DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+    values.put(Utilitario.CAMPO_FECHA_COMENT, formatoFecha.format(fechaActual));
+    values.put(Utilitario.CAMPO_VISIBILIDAD, "1");
+    values.put(Utilitario.CAMPO_ID_REPORTE, cor_reportedet);
+    Long idResultante= db.insert(Utilitario.TABLE_COMENTARIO,Utilitario.CAMPO_COD_COMENTARIO,values);
 
-        Toast.makeText( DetalleIncidente.this, "Se agrego el comentario",Toast.LENGTH_LONG).show();
+    Toast.makeText( DetalleIncidente.this, "Se agrego el comentario",Toast.LENGTH_LONG).show();
 
-        Intent detalle= new Intent(DetalleIncidente.this,DetalleIncidente.class);
+    Intent detalle= new Intent(DetalleIncidente.this,DetalleIncidente.class);
 
-        detalle.putExtra("pasar_codigo",cor_reportedet);
-        startActivity(detalle);
+    detalle.putExtra("pasar_codigo",cor_reportedet);
+    startActivity(detalle);
 
-        db.close();
+    db.close();
+}else{
+    Toast.makeText( DetalleIncidente.this, "No puede agregar un comentario vacio",Toast.LENGTH_LONG).show();
+}
+
     }
 
     private void listarcomentarios() {

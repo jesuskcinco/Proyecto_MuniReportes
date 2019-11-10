@@ -8,13 +8,17 @@ public class RegistroaSociedad {
     public String fecha_reg_socie;
     public String estado_sociedad2;
 
-    public RegistroaSociedad(Integer idregistrosociedad, Integer idsociedad, String placa_sociedad, Integer usuario_sociedad, String fecha_reg_socie, String estado_sociedad2) {
+
+    public String descsociedad;
+
+    public RegistroaSociedad(Integer idregistrosociedad, Integer idsociedad, String placa_sociedad, Integer usuario_sociedad, String fecha_reg_socie, String estado_sociedad2, String descsociedad) {
         this.idregistrosociedad = idregistrosociedad;
         this.idsociedad = idsociedad;
         this.placa_sociedad = placa_sociedad;
         this.usuario_sociedad = usuario_sociedad;
         this.fecha_reg_socie = fecha_reg_socie;
         this.estado_sociedad2 = estado_sociedad2;
+        this.descsociedad = descsociedad;
     }
 
     public RegistroaSociedad() {
@@ -67,4 +71,12 @@ public class RegistroaSociedad {
     public void setEstado_sociedad2(String estado_sociedad2) {
         this.estado_sociedad2 = estado_sociedad2;
     }
+    public String getDescsociedad() {
+        return descsociedad;
+    }
+
+    public void setDescsociedad(String descsociedad) {
+        this.descsociedad = descsociedad;
+    }
+
 }

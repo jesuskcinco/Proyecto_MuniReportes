@@ -108,6 +108,16 @@ public class MainActivity extends AppCompatActivity {
 
                 //miIntent.putExtra("pasar_usuario",dniobt);
                 break;
+            case R.id.btnmotosociedad:
+                miIntent= new Intent(MainActivity.this, RegistrarMotoSociedad.class);
+
+                //miIntent.putExtra("pasar_usuario",dniobt);
+                break;
+            case R.id.btnreporte1:
+                miIntent= new Intent(MainActivity.this, ReporteVehiculos.class);
+
+                ;
+                break;
         }
         if (miIntent!=null) startActivity(miIntent);
     }

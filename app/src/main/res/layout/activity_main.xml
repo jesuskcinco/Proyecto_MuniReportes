@@ -132,7 +132,18 @@
                 android:layout_height="wrap_content"
                 android:text="Editar Perfil"
                 android:onClick="onClick"/>
-
+            <Button
+                android:id="@+id/btnmotosociedad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agregar moto a sociedad"
+                android:onClick="onClick"/>
+            <Button
+                android:id="@+id/btnreporte1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reporte 1"
+                android:onClick="onClick"/>
         </LinearLayout>
     </ScrollView>
 

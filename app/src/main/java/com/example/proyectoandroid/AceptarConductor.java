@@ -31,6 +31,7 @@ public class AceptarConductor extends AppCompatActivity {
     ArrayList<Mensajes> listarmensajeacep;
     TextView asunto,msj,fecha;
     Button aceptar,rechazar;
+    String tipo,idregistro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,38 +57,82 @@ public class AceptarConductor extends AppCompatActivity {
     private void validarsolicitud() {
         db= con.getWritableDatabase();
 
-        Cursor cursor=null;
-        cursor= db.rawQuery("select c.ok_duenio from MENSAJES m  inner join CONDUCTORMOTO c on c.dni_usuario=m.dni_usuario and m.placa_vehiculo=c.placa_vehiculo " +
-                "where m.cod_mensaje='"+cor_reportedet+"'",null);
-        while (cursor.moveToNext()){
-            if (cursor.getString(0).equals("0")){
-                aceptar.setVisibility(View.VISIBLE);
-                rechazar.setVisibility(View.VISIBLE);
-            }else{
-                aceptar.setVisibility(View.GONE);
-                rechazar.setVisibility(View.GONE);
-                AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-                dialogo1.setTitle("Aviso");
-                if (cursor.getString(0).equals("1")){
-                    dialogo1.setMessage("Usted ya acepto al usuario como conductor de su vehículo");
-                }else {
-                    dialogo1.setMessage("Usted ya rechazó al usuario como conductor de su vehículo");
-                }
+        Cursor cursor0=null;
+        cursor0= db.rawQuery("select tipo_mensaje from MENSAJES m where m.cod_mensaje='"+cor_reportedet+"'",null);
+        while (cursor0.moveToNext()){
+            tipo=cursor0.getString(0);
+            if (tipo.equals("Moto-Conductor")){
+                Cursor cursor=null;
+                cursor= db.rawQuery("select c.ok_duenio from MENSAJES m  inner join CONDUCTORMOTO c on c.dni_usuario=m.dni_usuario and m.placa_vehiculo=c.placa_vehiculo " +
+                        "where m.cod_mensaje='"+cor_reportedet+"'",null);
 
-                dialogo1.setCancelable(false);
-                dialogo1.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogo1, int id) {
-                        //aceptar();
+                while (cursor.moveToNext()){
+                    if (cursor.getString(0).equals("0") ){
+                        aceptar.setVisibility(View.VISIBLE);
+                        rechazar.setVisibility(View.VISIBLE);
+                    }else{
+                        aceptar.setVisibility(View.GONE);
+                        rechazar.setVisibility(View.GONE);
+                        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+                        dialogo1.setTitle("Aviso");
+                        if (cursor.getString(0).equals("1")){
+                            dialogo1.setMessage("Usted ya aceptó la solicitud del usuario");
+                        }else {
+                            dialogo1.setMessage("Usted ya rechazó la solicitud del usuario");
+                        }
+
+                        dialogo1.setCancelable(false);
+                        dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogo1, int id) {
+                                //aceptar();
+                            }
+                        });
+                        dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogo1, int id) {
+                                //cancelar();
+                            }
+                        });
+                        dialogo1.show();
                     }
-                });
-                dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogo1, int id) {
-                        //cancelar();
+                }
+            }else  if(tipo.equals("Moto-Sociedad")){
+                Cursor cursor2=null;
+                cursor2= db.rawQuery("select c.idregistrosociedad,c.estado_sociedad from MENSAJES m  inner join USUARIOSOCIEDAD c on c.dni_usuario=m.dni_usuario " +
+                        "and m.placa_vehiculo=c.placa_vehiculo where m.cod_mensaje='"+cor_reportedet+"'",null);
+                while (cursor2.moveToNext()){
+                    idregistro=cursor2.getString(0);
+                    if (cursor2.getString(1).equals("Pendiente") ){
+                        aceptar.setVisibility(View.VISIBLE);
+                        rechazar.setVisibility(View.VISIBLE);
+                    }else{
+                        aceptar.setVisibility(View.GONE);
+                        rechazar.setVisibility(View.GONE);
+                        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+                        dialogo1.setTitle("Aviso");
+                        if (cursor2.getString(0).equals("Aceptado")){
+                            dialogo1.setMessage("Usted ya aceptó la solicitud del usuario");
+                        }else {
+                            dialogo1.setMessage("Usted ya rechazó la solicitud del usuario");
+                        }
+
+                        dialogo1.setCancelable(false);
+                        dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogo1, int id) {
+                                //aceptar();
+                            }
+                        });
+                        dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogo1, int id) {
+                                //cancelar();
+                            }
+                        });
+                        dialogo1.show();
                     }
-                });
-                dialogo1.show();
+                }
             }
+
         }
+
         db.close();
     }
 
@@ -116,7 +161,7 @@ public class AceptarConductor extends AppCompatActivity {
         for(int i=0;i<listarmensajeacep.size();i++){
 
 
-            asunto.setText("Solicitud de conductor para su vehiculo con placa "+listarmensajeacep.get(i).getPlaca());
+            asunto.setText("Solicitud de vehiculo "+listarmensajeacep.get(i).getPlaca());
             fecha.setText(""+listarmensajeacep.get(i).getFecha());
             msj.setText(""+listarmensajeacep.get(i).getMensaje_not());
             dnimsj=listarmensajeacep.get(i).getDni_mensaje().toString();
@@ -148,24 +193,43 @@ public class AceptarConductor extends AppCompatActivity {
     private void funcionactualizar() {
 
         if(flgact.equals("SI")){
-            db= con.getWritableDatabase();
-            ContentValues values= new ContentValues();
-            ContentValues values2= new ContentValues();
-            values.put(Utilitario.CAMPO_ESTADO_MOTO_COND,"Activo");
-            values.put(Utilitario.CAMPO_OK_DUENIO,"1");
-            values2.put(Utilitario.CAMPO_FLGCONDUCTOR,"1");
-            int resultado= db.update("CONDUCTORMOTO",values,"dni_usuario='"+dnimsj+"' and placa_vehiculo='"+placa+"' and estado_moto_cond='Inactivo'" ,null);
-            int resultado2= db.update("USUARIO",values2,"dni_usuario='"+dnimsj+"'" ,null);
+            if(tipo.equals("Moto-Conductor")){
+                db= con.getWritableDatabase();
+                ContentValues values= new ContentValues();
+                ContentValues values2= new ContentValues();
+                values.put(Utilitario.CAMPO_ESTADO_MOTO_COND,"Activo");
+                values.put(Utilitario.CAMPO_OK_DUENIO,"1");
+                values2.put(Utilitario.CAMPO_FLGCONDUCTOR,"1");
+                int resultado= db.update("CONDUCTORMOTO",values,"dni_usuario='"+dnimsj+"' and placa_vehiculo='"+placa+"' and estado_moto_cond='Inactivo'" ,null);
+                int resultado2= db.update("USUARIO",values2,"dni_usuario='"+dnimsj+"'" ,null);
 
-            if (resultado==1 && resultado2==1){
-                Toast.makeText(this,"Se aceptó al usuario como conductor de su vehiculo",Toast.LENGTH_SHORT).show();
-                Intent miIntent=null;
-                miIntent= new Intent(AceptarConductor.this,BandejaMensajes.class);
-                startActivity(miIntent);
-            }else {
-                Toast.makeText(this,"No se actualizo correctamente intente de nuevo",Toast.LENGTH_SHORT).show();
+                if (resultado==1 && resultado2==1){
+                    Toast.makeText(this,"Se aceptó al usuario como conductor de su vehiculo",Toast.LENGTH_SHORT).show();
+                    Intent miIntent=null;
+                    miIntent= new Intent(AceptarConductor.this,BandejaMensajes.class);
+                    startActivity(miIntent);
+                }else {
+                    Toast.makeText(this,"No se actualizo correctamente intente de nuevo",Toast.LENGTH_SHORT).show();
+                }
+                db.close();
+            }else if (tipo.equals("Moto-Sociedad")){
+                db= con.getWritableDatabase();
+                ContentValues values= new ContentValues();
+                values.put(Utilitario.CAMPO_ESTADO_SOCIEDAD2,"Activo");
+                int resultado= db.update("USUARIOSOCIEDAD",values,"idregistrosociedad='"+idregistro+"'" ,null);
+
+
+                if (resultado==1){
+                    Toast.makeText(this,"Se aceptó el vehiculo como integrante de su sociedad",Toast.LENGTH_SHORT).show();
+                    Intent miIntent=null;
+                    miIntent= new Intent(AceptarConductor.this,BandejaMensajes.class);
+                    startActivity(miIntent);
+                }else {
+                    Toast.makeText(this,"No se actualizo correctamente intente de nuevo",Toast.LENGTH_SHORT).show();
+                }
+                db.close();
             }
-            db.close();
+
 
         }else {
             db= con.getWritableDatabase();

@@ -112,6 +112,7 @@ public class RegistroMotoConductor extends AppCompatActivity {
             values2.put(Utilitario.CAMPO_DNI, dni);
             values2.put(Utilitario.CAMPO_ELIMINAR, 0);
             values2.put(Utilitario.CAMPO_PLACA, idtipovehiculo);
+            values2.put(Utilitario.CAMPO_TIPO_MENSAJE, "Moto-Conductor");
             Long idResultante2= db.insert(Utilitario.TABLE_MENSAJES,Utilitario.CAMPO_ID_MENSAJE,values2);
 
             Toast.makeText(getApplicationContext(), "Se grabo el registro y se envio un mensaje al dueño del vehiculo " + idResultante, Toast.LENGTH_LONG).show();
