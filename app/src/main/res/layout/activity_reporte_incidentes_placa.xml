@@ -4,15 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReporteVehiculos"
+    tools:context=".ReporteIncidentesPlaca"
     android:orientation="vertical">
-
     <Spinner
-        android:id="@+id/spnmeses"
+        android:id="@+id/spnmeses2"
         android:layout_width="match_parent"
         android:layout_height="38dp" />
-
-
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -20,13 +17,14 @@
         android:layout_margin="8dp"
         tools:layout_editor_absoluteX="111dp"
         tools:layout_editor_absoluteY="142dp" >
-        <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/graficopastel"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-
+        </com.github.mikephil.charting.charts.BarChart>
     </androidx.cardview.widget.CardView>
+
 </LinearLayout>

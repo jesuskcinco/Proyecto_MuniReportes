@@ -144,6 +144,12 @@
                 android:layout_height="wrap_content"
                 android:text="Reporte 1"
                 android:onClick="onClick"/>
+            <Button
+                android:id="@+id/btnreporte2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reporte 2"
+                android:onClick="onClick"/>
         </LinearLayout>
     </ScrollView>
 

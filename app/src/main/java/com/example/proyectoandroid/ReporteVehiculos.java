@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.example.proyectoandroid.Entidades.RegistroaSociedad;
 import com.example.proyectoandroid.Entidades.ReportePie;
 import com.example.proyectoandroid.Utilidades.GlobalVariables;
 import com.github.mikephil.charting.charts.BarChart;
@@ -43,6 +44,7 @@ public class ReporteVehiculos extends AppCompatActivity {
     BarChart barChart;
     ArrayList<PieEntry> pieEntries;
     ArrayList<String> listameses;
+    ArrayList<String> listareporte;
     ArrayList<ReportePie> reportePies;
     ArrayList<ReportePie> reportePies2;
     GlobalVariables globalVariables;
@@ -50,6 +52,7 @@ public class ReporteVehiculos extends AppCompatActivity {
     SQLiteDatabase db;
     ConexionSQLiteHelper con;
     ReportePie clasetipopie2;
+    String valorcombo;
     int idcombo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,7 @@ public class ReporteVehiculos extends AppCompatActivity {
         creararreglos();
         ArrayAdapter<CharSequence> adaptador2=new ArrayAdapter(this,android.R.layout.simple_spinner_item,listameses);
         spnmeses.setAdapter(adaptador2);
+        creararreglo2();
         spnmeses.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -70,11 +74,16 @@ public class ReporteVehiculos extends AppCompatActivity {
                 idcombo = (int) spnmeses.getSelectedItemId();
                 if (idcombo != 0) {
                     //valor de combo tipo incidente
-
+                    Log.i("id", reportePies.size() + "");
+                    Log.i("desc", idcombo + "");
+                    Log.i("desc - 1", (idcombo - 1) + "");
+                    Log.i("desc - 1", reportePies.get(idcombo - 1).getNummes()+ "");
+                    valorcombo=reportePies.get(idcombo - 1).getNummes();
 
                     creararreglo2();
                     //Toast.makeText(getApplicationContext(), "Se grabo la cabecera del reporte " + idtipoincidente, Toast.LENGTH_LONG).show();
                 }else{
+                    //valorcombo=reportePies.get(idcombo-1).getNummes();
                     creararreglo2();
                 }
             }
@@ -90,17 +99,21 @@ public class ReporteVehiculos extends AppCompatActivity {
     }
 //CREA ARREGLO PARA EL TIPO INCIDENTE Y SU CANTIDAD
     private void creararreglo2() {
+        db= con.getWritableDatabase();
         idcombo = (int) spnmeses.getSelectedItemId();
+
+        reportePies2= new ArrayList<ReportePie>();
         Cursor cursor2=null;
         clasetipopie2= null;
-        if(idcombo!=0){
+        if(idcombo==0){
             cursor2=db.rawQuery("SELECT a.codigo_incidente,b.tipo_incidente,count(*)  FROM REPORTEINCIDENTE a " +
                     "INNER JOIN TIPOINCIDENTE b on a.codigo_incidente=b.codigo_incidente " +
                     "group by a.codigo_incidente,b.tipo_incidente",null);
         }else {
+            //valorcombo=reportePies.get(idcombo-1).getNummes();
             cursor2=db.rawQuery("SELECT a.codigo_incidente,b.tipo_incidente,count(*)  FROM REPORTEINCIDENTE a " +
                     "INNER JOIN TIPOINCIDENTE b on a.codigo_incidente=b.codigo_incidente" +
-                    " where substr( (fecha_reporte), -7,2) ='"+reportePies.get(idcombo-1).getNummes()+"' " +
+                    " where substr( (fecha_reporte), -7,2) ='"+valorcombo+"' " +
                     "group by a.codigo_incidente,b.tipo_incidente",null);
         }
 
@@ -113,6 +126,8 @@ public class ReporteVehiculos extends AppCompatActivity {
             reportePies2.add(clasetipopie2);
 
         }
+        db.close();
+        createCharts2();
     }
 //CREA ARREGLO PARA OBTENER LOS MESES DE CADA INCIDENTE
     private void creararreglos() {
@@ -139,7 +154,7 @@ public class ReporteVehiculos extends AppCompatActivity {
         while (cursor.moveToNext()){
             clasetipopie=new ReportePie();
             clasetipopie.setNommes(cursor.getString(0));
-            clasetipopie.setNummes(cursor.getString(0));
+            clasetipopie.setNummes(cursor.getString(1));
 
             reportePies.add(clasetipopie);
 
@@ -152,7 +167,7 @@ public class ReporteVehiculos extends AppCompatActivity {
     private void llenarspinnermeses() {
         listameses =new ArrayList<String>();
 
-        listameses.add("Seleccione");
+        listameses.add("Todos los meses");
 
 
         for(int i=0;i<reportePies.size();i++){
@@ -183,14 +198,18 @@ public class ReporteVehiculos extends AppCompatActivity {
         pieChart.setData(pieData);
     }
 //FORMATO AL CHART---LLAMA A LEGEND
-    private Chart getSameChart (Chart chart,String description, int textColor, int background, int animateY){
+    private Chart getSameChart (Chart chart, int textColor, int background, int animateY){
 
+        //Description descripcion=new Description();
+        //descripcion.setText("Grásico de Vehiculos en incidente por Mes");
+        //descripcion.setEnabled(true);
 
-        chart.getDescription().setText(description);
-        chart.getDescription().setTextSize(15);
-        chart.setBackgroundColor(background);
-        chart.animateY(animateY);
-        legend(chart);
+        //chart.getDescription().setText(description);
+        //chart.setDescription(descripcion);
+        //chart.getDescription().setTextSize(15);
+        //chart.setBackgroundColor(background);
+        //chart.animateY(animateY);
+        //legend(chart);
         return chart;
     }
     //AGREGAR LEYENDA AL CHART
@@ -240,13 +259,15 @@ public class ReporteVehiculos extends AppCompatActivity {
     private void axisLeft(YAxis axis){
         axis.setSpaceTop(30);
         axis.setAxisMinimum(0);
-    }private void axisRigth(YAxis axis){
+    }
+    private void axisRigth(YAxis axis){
+
         axis.setEnabled(false);
     }
     //LLENAR GRAFICO BARRA
     public void createCharts(){
 
-        barChart=(BarChart)getSameChart(barChart,"Series", Color.RED,Color.CYAN,5000);
+        //barChart=(BarChart)getSameChart(barChart, Color.RED,Color.CYAN,5000);
         barChart.setDrawGridBackground(true);
         barChart.setDrawBarShadow(true);
         barChart.setData(getBarData());
@@ -258,7 +279,24 @@ public class ReporteVehiculos extends AppCompatActivity {
     //LLENA GRAFICO BARRA
     public void createCharts2(){
 
-        pieChart=(PieChart) getSameChart(barChart,"Valor", Color.RED,Color.CYAN,5000);
+        //pieChart=(PieChart) getSameChart(barChart, Color.RED,Color.CYAN,5000);
+        //Description descripcion=new Description();
+        //descripcion.setText("Grásico de Vehiculos en incidente por Mes");
+        //descripcion.setEnabled(true);
+
+        //chart.getDescription().setText(description);
+        //pieChart.setDescription(descripcion);
+        Description description=new Description();
+        description.setText("Gráfico de Vehiculos en incidente por Mes");
+        description.setEnabled(true);
+        description.setTextSize(14);
+        pieChart.setDescription(description);
+        legend(pieChart);
+
+        //pieChart.setBackgroundColor(background);
+        pieChart.animateY(3000);
+
+
         pieChart.setHoleRadius(10);
         pieChart.setTransparentCircleRadius(12);
         pieChart.setData(getPieData());

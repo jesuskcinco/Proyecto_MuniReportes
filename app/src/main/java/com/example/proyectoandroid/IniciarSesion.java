@@ -26,6 +26,7 @@ public class IniciarSesion extends AppCompatActivity {
 
         eddni= (EditText) findViewById(R.id.eddni1);
         edclave= (EditText) findViewById(R.id.edclave1);
+        findViewById(R.id.btnolvidar).setVisibility(View.GONE);
     }
     public void onClick7 (View view){
         Intent miIntent=null;

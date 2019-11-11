@@ -429,6 +429,7 @@ public class RegistrarIncidente extends AppCompatActivity {
         String marcaotro2= marcaotro.getText().toString();
         String lattext= Double.toString(latitud);
         String longtext=Double.toString(longitud);
+
         //SE AGREGA PARA CUANDO EL USUARIO NO HACE CLIC EN REGIUSTRAR UBICACION
         if(lattext.equals("0.0") && longtext.equals("0.0")){
             lattext="null";
@@ -448,8 +449,11 @@ public class RegistrarIncidente extends AppCompatActivity {
         values.put(Utilitario.CAMPO_LONGITUD_GPS,longtext);
         values.put(Utilitario.CAMPO_DIRECCION_GPS,direcciongps);
         if(!descripreporte.isEmpty() && !direcciongps.isEmpty()){
-
-
+//por defectotodo null
+            values.put(Utilitario.CAMPO_PLACA,"null");
+            values.put(Utilitario.CAMPO_PLACA_OTRO,"null");
+            values.put(Utilitario.CAMPO_MARCA_OTRO,"null");
+            values.put(Utilitario.CAMPO_MODELO_OTRO,"null");
         if (rb2.isChecked() == true) {
             values.put(Utilitario.CAMPO_PLACA,"null");
             values.put(Utilitario.CAMPO_PLACA_OTRO,"null");

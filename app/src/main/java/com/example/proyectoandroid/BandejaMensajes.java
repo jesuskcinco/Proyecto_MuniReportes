@@ -71,4 +71,17 @@ public class BandejaMensajes extends AppCompatActivity {
         //obtenerinformacion();
         db.close();
     }
+
+    public void onClick(View view) {
+        Intent miIntent=null;
+        switch (view.getId()){
+
+            case R.id.button27:
+                miIntent= new Intent(BandejaMensajes.this, MainActivity.class);
+
+                break;
+
+        }
+        if (miIntent!=null) startActivity(miIntent);
+    }
 }

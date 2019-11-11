@@ -116,8 +116,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnreporte1:
                 miIntent= new Intent(MainActivity.this, ReporteVehiculos.class);
 
-                ;
+
                 break;
+            case R.id.btnreporte2:
+                miIntent= new Intent(MainActivity.this, ReporteIncidentesPlaca.class);
+
+                ;
         }
         if (miIntent!=null) startActivity(miIntent);
     }
