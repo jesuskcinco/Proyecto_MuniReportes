@@ -45,6 +45,10 @@ public class ActualizarUsuario extends AppCompatActivity {
         ls_apellido= (EditText) findViewById(R.id.txt_apellidos3);
         ls_dni= (EditText) findViewById(R.id.txt_dni3);
         ls_celu= (EditText) findViewById(R.id.txt_cel);
+        ls_dni.setEnabled(false);
+        ls_nombre.setEnabled(false);
+        ls_apellido.setEnabled(false);
+
         image=findViewById(R.id.imgusuario);
         globalVariables = (GlobalVariables)getApplicationContext();
         dniobt=globalVariables.getDni();

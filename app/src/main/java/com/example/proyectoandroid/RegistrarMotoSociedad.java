@@ -58,19 +58,20 @@ public class RegistrarMotoSociedad extends AppCompatActivity {
 
 
 //LLENAMOS EL LISTVIEW
-        listviewmotosoc= (ListView) findViewById(R.id.listviewmotos);
+        listviewmotosoc= (ListView) findViewById(R.id.lvmotosociedad);
         validarmotosociedad();
-
-
+        //consultarlistavehiculos();
+        //final ArrayAdapter adaptador= new ArrayAdapter(this,android.R.layout.simple_list_item_1,listainformacion);
+        //listviewmotosoc.setAdapter(adaptador);
     }
 
     private void validarmotosociedad() {
         db= con.getWritableDatabase();
 
-        Cursor cursor= db.rawQuery("select count(placa_vehiculo) from USUARIOSOCIEDAD where dni_usuario='"+dni+"' and estado_sociedad='Aceptado'",null);
+        Cursor cursor= db.rawQuery("select count(placa_vehiculo) from USUARIOSOCIEDAD where dni_usuario='"+dni+"' and estado_sociedad='Activo'",null);
         while (cursor.moveToNext()){
             Integer coun= cursor.getInt(0);
-            if(coun.equals(1)){
+            if(coun>0){
                 consultarlistavehiculos();
                 final ArrayAdapter adaptador= new ArrayAdapter(this,android.R.layout.simple_list_item_1,listainformacion);
                 listviewmotosoc.setAdapter(adaptador);
@@ -88,7 +89,7 @@ public class RegistrarMotoSociedad extends AppCompatActivity {
         RegistroaSociedad registro= null;
         listaclasesociedad2 =new ArrayList<RegistroaSociedad>();
         Cursor cursor= db.rawQuery("select placa_vehiculo,s.nombresociedad from USUARIOSOCIEDAD a inner join SOCIEDAD s on a.idsociedad=s.idsociedad" +
-                " where a.dni_usuario='"+dni+"' and a.estado_sociedad='Aceptado'",null);
+                " where a.dni_usuario='"+dni+"' and a.estado_sociedad='Activo'",null);
 
         while (cursor.moveToNext()){
             registro= new RegistroaSociedad();
@@ -118,7 +119,7 @@ public class RegistrarMotoSociedad extends AppCompatActivity {
         listaclasemotos= new ArrayList<Vehiculo>();
         //CONSULTA
         Cursor cursor=db.rawQuery("select placa_vehiculo from vehiculo where idsociedad is null and dni_usuario='"+dni+"' and placa_vehiculo not in " +
-                "(select placa_vehiculo from USUARIOSOCIEDAD where estado_sociedad in ('Aceptado','Pendiente'))",null);
+                "(select placa_vehiculo from USUARIOSOCIEDAD where estado_sociedad in ('Activo','Pendiente'))",null);
 
         while (cursor.moveToNext()){
             clasetiposmoto=new Vehiculo();

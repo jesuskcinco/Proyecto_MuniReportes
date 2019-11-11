@@ -51,7 +51,7 @@ public class RegistroMotoConductor extends AppCompatActivity {
         globalVariables = (GlobalVariables)getApplicationContext();
 
         dniobt=globalVariables.getDni();
-
+tv_dni.setEnabled(false);
         if(!dniobt.isEmpty()){
             tv_dni.setText(dniobt);
         }else {
