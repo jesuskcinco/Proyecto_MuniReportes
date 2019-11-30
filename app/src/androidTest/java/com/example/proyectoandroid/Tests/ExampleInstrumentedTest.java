@@ -1,4 +1,4 @@
-package com.example.proyectoandroid;
+package com.example.proyectoandroid.Tests;
 
 import android.content.Context;
 

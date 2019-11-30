@@ -9,7 +9,12 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        testApplicationId "com.example.proyectoandroid.Tests"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    testOptions{
+        reportDir="$project.buildDir/results/report"
+        resultsDir="$project.buildDir/results"
     }
     buildTypes {
         release {
@@ -44,4 +49,21 @@ dependencies {
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-all:1.10.19'
+}
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
 }
