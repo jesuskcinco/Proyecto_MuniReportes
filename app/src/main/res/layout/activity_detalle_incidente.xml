@@ -5,29 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/fondo"
     tools:context=".DetalleIncidente">
 
     <TextView
         android:id="@+id/edtasunto"
+        style="@style/estilos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#4CAF50"
         android:ems="10"
         android:hint="Asunto"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="18sp"
-        ></TextView>
+        android:textSize="18sp"></TextView>
 
     <TextView
         android:id="@+id/edtestado"
+        style="@style/estilos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#4CAF50"
         android:ems="10"
         android:text="Estado"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="18sp"
-        />
+        android:textSize="18sp" />
 
     <ScrollView
         android:layout_width="match_parent"

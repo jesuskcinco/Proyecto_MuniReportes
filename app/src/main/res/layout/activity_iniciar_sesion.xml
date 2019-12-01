@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IniciarSesion"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    style="@style/estilos"
+    >
 
 
     <EditText
@@ -15,7 +17,8 @@
         android:ems="10"
         android:hint="DNI"
         android:inputType="textPersonName"
-        android:text="" />
+        android:text=""
+        style="@style/estilos"/>
     <EditText
         android:id="@+id/edclave1"
         android:layout_width="match_parent"
@@ -23,7 +26,8 @@
         android:ems="10"
         android:hint="Clave"
         android:inputType="textPersonName"
-        android:text="" />
+        android:text=""
+        style="@style/estilos"/>
     <Button
         android:id="@+id/button5"
         android:layout_width="match_parent"

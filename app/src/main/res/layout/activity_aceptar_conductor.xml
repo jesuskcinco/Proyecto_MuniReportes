@@ -4,48 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AceptarConductor"
-    android:orientation="vertical">
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    tools:context=".AceptarConductor">
 
-    <TextView
-        android:id="@+id/textView4"
+    <Button
+        android:id="@+id/button25"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Asunto" />
-
-    <EditText
-        android:id="@+id/edtasumsj"
-        android:layout_width="401dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Name"
-        android:inputType="textMultiLine" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fecha" />
+        android:onClick="OnClick"
+        android:text="Regresar" />
 
     <EditText
         android:id="@+id/edtfecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Name"
-       />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mensaje" />
-
+        android:hint="Name" />
 
     <EditText
         android:id="@+id/edtmsjmsj"
         android:layout_width="399dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Name"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/edtasumsj"
+        android:layout_width="401dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
@@ -62,25 +50,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Aceptar"
-            android:onClick="OnClick"/>
+            android:onClick="OnClick"
+            android:text="Aceptar" />
 
         <Button
             android:id="@+id/button22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Denegar"
-            android:onClick="OnClick"/>
+            android:onClick="OnClick"
+            android:text="Denegar" />
 
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button25"
+
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Regresar"
-        android:onClick="OnClick"/>
+        android:text="Fecha" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Asunto" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mensaje" />
 
 </LinearLayout>

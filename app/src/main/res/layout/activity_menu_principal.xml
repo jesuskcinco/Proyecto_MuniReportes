@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuPrincipal"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="179dp"
+        tools:layout_editor_absoluteY="143dp">
+
+
+        <LinearLayout
+            android:layout_width="206dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#CE93D8"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:background="#DCFF6D00"
+                    android:scaleType="fitCenter"
+                    tools:srcCompat="@drawable/perfil" />
+
+                <TextView
+                    android:id="@+id/dnimenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#00e5ff"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="#B2EBF2"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:autoSizeMaxTextSize="@dimen/activity_horizontal_margin"/>
+
+                <ImageView
+                    android:id="@+id/imageView20"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#DBFFD600"
+                    tools:srcCompat="@drawable/mantenimiento" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="215dp"
+            android:layout_height="match_parent"
+            android:background="#81D4FA"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView21"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:background="#DB64DD17"
+                    tools:srcCompat="@drawable/icon" />
+
+                <TextView
+                    android:id="@+id/cantreport"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#00e5ff"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="#B2EBF2"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageView22"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#DBFFAB00"
+                    android:scaleType="fitCenter"
+                    tools:srcCompat="@drawable/buscaricono" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

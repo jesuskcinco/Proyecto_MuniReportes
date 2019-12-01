@@ -4,21 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActualizarUsuario"
+    android:background="@drawable/fondo"
     android:orientation="vertical"
-    >
+    tools:context=".ActualizarUsuario">
 
-    <ImageView
-        android:id="@+id/imgusuario"
+    <Button
+        android:id="@+id/btn_grabar3"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:maxHeight="150dp"
-        android:adjustViewBounds="false"
-        android:background="#2196F3"
-        android:cropToPadding="false"
-        android:visibility="visible"
-        app:srcCompat="@mipmap/ic_launcher_round"
-        android:onClick="onClick5"/>
+        android:layout_height="wrap_content"
+        android:onClick="onClick5"
+        android:text="Actualizar Datos" />
+
+    <Button
+        android:id="@+id/btn_canc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick5"
+        android:text="Cancelar" />
 
     <EditText
         android:id="@+id/txt_dni3"
@@ -26,8 +28,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="DNI"
-        android:inputType="number"
-        />
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/txt_nombres3"
@@ -35,8 +36,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Nombres"
-        android:inputType="textPersonName"
-        />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/txt_apellidos3"
@@ -44,8 +44,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Apellidos"
-        android:inputType="textPersonName"
-        />
+        android:inputType="textPersonName" />
+
 
     <EditText
         android:id="@+id/txt_usuario3"
@@ -53,9 +53,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Usuario"
-        android:inputType="textPersonName"
-        />
-
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/txt_clave3"
@@ -63,14 +61,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Contraseña"
-        android:inputType="textPassword"
-        />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Celular" />
+        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/txt_cel"
@@ -79,13 +70,7 @@
         android:ems="10"
         android:hint="Celular"
         android:inputType="number"
-        android:maxLength="9"/>
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Correo" />
+        android:maxLength="9" />
 
     <EditText
         android:id="@+id/txt_correo3"
@@ -94,19 +79,29 @@
         android:ems="10"
         android:hint="Correo Electrónico"
         android:inputType="textEmailAddress" />
-    <Button
-        android:id="@+id/btn_grabar3"
+
+    <ImageView
+        android:id="@+id/imgusuario"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:adjustViewBounds="false"
+        android:background="#2196F3"
+        android:cropToPadding="false"
+        android:maxHeight="150dp"
+        android:onClick="onClick5"
+        android:visibility="visible"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClick5"
-        android:text="Actualizar Datos"
-        />
-    <Button
-        android:id="@+id/btn_canc"
+        android:text="Celular" />
+
+    <TextView
+        android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClick5"
-        android:text="Cancelar"
-        />
+        android:text="Correo" />
 
 </LinearLayout>

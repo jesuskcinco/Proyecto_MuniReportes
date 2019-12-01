@@ -4,17 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActualizarMototaxi"
-    android:orientation="vertical">
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    tools:context=".ActualizarMototaxi">
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Actualizar" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Regresar" />
+
+    <EditText
+        android:id="@+id/edtcolor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Color"
+        android:inputType="textPersonName" />
 
     <ImageView
         android:id="@+id/imageve"
         android:layout_width="match_parent"
         android:layout_height="93dp"
-        android:maxHeight="93dp"
         android:background="#FF5722"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:onClick="onClick"/>
+        android:maxHeight="93dp"
+        android:onClick="onClick"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/edtmodel"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Modelo" />
 
     <TextView
         android:id="@+id/edtplacave"
@@ -33,33 +64,4 @@
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:text="Dni_duenio" />
-
-    <TextView
-        android:id="@+id/edtmodel"
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Modelo" />
-
-    <EditText
-        android:id="@+id/edtcolor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Color"
-        android:inputType="textPersonName"
-        />
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Actualizar"
-        android:onClick="onClick"/>
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Regresar"
-        android:onClick="onClick"/>
 </LinearLayout>

@@ -51,16 +51,18 @@ public class IniciarSesion extends AppCompatActivity {
         String clave=edclave.getText().toString();
 
         if (!dni.isEmpty() && !clave.isEmpty()){
-            Cursor cr= bd.rawQuery("SELECT dni_usuario,clave_usuario from USUARIO WHERE dni_usuario='"+dni+ "' and " +
+            Cursor cr= bd.rawQuery("SELECT dni_usuario,clave_usuario,nombres_usuario from USUARIO WHERE dni_usuario='"+dni+ "' and " +
                     "clave_usuario='"+clave+"'",null);
             if(cr.moveToFirst()==true){
                 String dnibd=cr.getString(0);
                 String clavebd=cr.getString(1);
+                String nomusu=cr.getString(2);
 
                 if (dni.equals(dnibd) && clave.equals(clavebd)){
-                    Intent ven= new Intent(this,Main2Activity.class);
+                    Intent ven= new Intent(this,MenuPrincipal.class);
                     globalVariables = (GlobalVariables)getApplicationContext();
                     globalVariables.setDni(dnibd);
+                    globalVariables.setNomusu(nomusu);
                     ven.putExtra("pasar_usuario",dnibd);
                     ven.putExtra("pasar_clave",clavebd);
                     startActivity(ven);

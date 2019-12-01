@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ReporteIncidentesPlaca"
+    android:background="@drawable/fondo"
     android:orientation="vertical">
     <Spinner
         android:id="@+id/spnmeses2"
